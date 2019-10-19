@@ -14,11 +14,13 @@ export class PitchComponent implements OnInit {
   }
 
   public redirectToInvestor() {
-    this.router.navigate(['./investor']);
+    localStorage.setItem('type', 'investor');
+    this.router.navigate(['/investor'], { replaceUrl: true });
   }
 
   public redirectToHomeowner() {
-    this.router.navigate(['./homeowner']);
+    localStorage.setItem('type', 'homeowner');
+    this.router.navigate(['/homeowner'], { replaceUrl: true });
   }
 
 

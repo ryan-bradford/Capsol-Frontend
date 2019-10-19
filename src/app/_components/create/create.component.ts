@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import { InvestorService } from '../services/investor.service';
-import { AuthService } from '../services/auth.service';
-import { AlertService } from '../services/alert.service';
+import { InvestorService } from '../../_services/investor.service';
+import { AuthService } from '../../_services/auth.service';
+import { AlertService } from '../../_services/alert.service';
 import { Observable } from 'rxjs';
-import { HomeownerService } from '../services/homeowner.service';
+import { HomeownerService } from '../../_services/homeowner.service';
 
 @Component({ templateUrl: 'create.component.html' })
 export class CreateComponent implements OnInit {
@@ -17,10 +17,10 @@ export class CreateComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private authenticationService: AuthService,
     private investorService: InvestorService,
     private homeownerService: HomeownerService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private route: ActivatedRoute
   ) {
   }
 
@@ -48,7 +48,7 @@ export class CreateComponent implements OnInit {
 
     this.loading = true;
     let toPipe: Observable<any>;
-    if (this.router.url.includes('investor')) {
+    if (localStorage.getItem('type') === 'investor') {
       toPipe = this.investorService.addInvestor(this.registerForm.value);
     } else {
       toPipe = this.homeownerService.addHomeowner(this.registerForm.value);
@@ -57,11 +57,7 @@ export class CreateComponent implements OnInit {
       .subscribe(
         data => {
           this.alertService.success('Registration successful', true);
-          if (this.router.url.includes('investor')) {
-            this.router.navigate(['/login/investor']);
-          } else {
-            this.router.navigate(['/login/homeowner']);
-          }
+          this.router.navigate(['../login'], { replaceUrl: true, relativeTo: this.route });
         },
         error => {
           this.alertService.error(error);

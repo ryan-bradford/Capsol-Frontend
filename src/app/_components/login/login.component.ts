@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidationErrors } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { AuthService } from '../services/auth.service';
-import { AlertService } from '../services/alert.service';
+import { AuthService } from '../../_services/auth.service';
+import { AlertService } from '../../_services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +15,16 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  localStorage: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthService,
-    private alertService: AlertService
+    private alertService: AlertService,
   ) {
+    this.localStorage = localStorage;
   }
 
   ngOnInit() {
@@ -32,11 +34,15 @@ export class LoginComponent implements OnInit {
     });
 
     // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.url.toString().includes('investor') ? '/investor' : '/homeowner';
+    this.returnUrl = '../';
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
+
+  get emailErrors(): ValidationErrors { return this.loginForm.controls.email.errors; }
+
+  get passwordErrors(): ValidationErrors { return this.loginForm.controls.password.errors; }
 
   onSubmit() {
     this.submitted = true;
@@ -54,15 +60,11 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           this.alertService.clear();
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate([this.returnUrl], { replaceUrl: true, relativeTo: this.route });
         },
         error => {
           this.alertService.error(error);
           this.loading = false;
         });
-  }
-
-  registerLink(): string {
-    return this.route.snapshot.url.toString().includes('investor') ? '/create/investor' : '/create/homeowner';
   }
 }

@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Deserialize } from 'cerialize';
-import { Investor } from '../entities/Investor';
+import { Investor } from '../_entities/Investor';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class InvestorService {
 
 
   public getInvestor(email: string): Observable<Investor> {
-    return this.http.get(`${environment.apiUrl}/investor/${email}`).pipe(
+    return this.http.get(`${environment.apiUrl}/investor/${email}`, { withCredentials: true }).pipe(
       map((result): Investor => Deserialize(result, Investor)));
   }
 

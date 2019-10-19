@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeownerService } from '../_services/homeowner.service';
 
 @Component({
   selector: 'app-homeowner',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeownerComponent implements OnInit {
 
-  constructor() { }
+  constructor(private homeownerService: HomeownerService) {
+    localStorage.setItem('type', 'homeowner');
+    this.homeownerService.getHomeowner(localStorage.getItem('email')).subscribe((result) => {
+      console.log(result);
+    });
+  }
 
   ngOnInit() {
   }

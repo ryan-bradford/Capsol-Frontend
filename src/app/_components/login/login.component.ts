@@ -35,7 +35,6 @@ export class LoginComponent {
         data => {
           this.loading = false;
           this.alertService.clear();
-          console.log(this.route.snapshot.url.toString());
           this.router.navigate(['../'], { replaceUrl: true, relativeTo: this.route });
         },
         error => {

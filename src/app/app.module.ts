@@ -17,6 +17,7 @@ import { LoginComponent } from './_components/login/login.component';
 import { PitchComponent } from './pitch/pitch.component';
 import { HomeownerComponent } from './homeowner/homeowner.component';
 import { InvestorComponent } from './investor/investor.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { InvestorComponent } from './investor/investor.component';
     MatIconModule,
     MatProgressSpinnerModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    NgxChartsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

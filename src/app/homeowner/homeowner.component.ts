@@ -11,7 +11,6 @@ export class HomeownerComponent implements OnInit {
   constructor(private homeownerService: HomeownerService) {
     localStorage.setItem('type', 'homeowner');
     this.homeownerService.getHomeowner(localStorage.getItem('email')).subscribe((result) => {
-      console.log(result);
     });
   }
 

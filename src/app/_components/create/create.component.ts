@@ -7,15 +7,18 @@ import { AuthService } from '../../_services/auth.service';
 import { AlertService } from '../../_services/alert.service';
 import { Observable } from 'rxjs';
 import { HomeownerService } from '../../_services/homeowner.service';
+import { Investor } from 'src/app/_entities/Investor';
+import { Homeowner } from 'src/app/_entities/Homeowner';
 
 @Component({ templateUrl: 'create.component.html' })
-export class CreateComponent implements OnInit {
-  registerForm: FormGroup;
+export class CreateComponent {
   loading = false;
   submitted = false;
+  name: string;
+  email: string;
+  password: string;
 
   constructor(
-    private formBuilder: FormBuilder,
     private router: Router,
     private investorService: InvestorService,
     private homeownerService: HomeownerService,
@@ -24,34 +27,24 @@ export class CreateComponent implements OnInit {
   ) {
   }
 
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
-  }
-
-  // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
-
-  onSubmit() {
+  createAccount() {
     this.submitted = true;
 
     // reset alerts on submit
     this.alertService.clear();
 
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
-
     this.loading = true;
     let toPipe: Observable<any>;
+    const newUser = {
+      name: this.name,
+      email: this.email,
+      password: this.password,
+    };
+
     if (localStorage.getItem('type') === 'investor') {
-      toPipe = this.investorService.addInvestor(this.registerForm.value);
+      toPipe = this.investorService.addInvestor(newUser as Investor);
     } else {
-      toPipe = this.homeownerService.addHomeowner(this.registerForm.value);
+      toPipe = this.homeownerService.addHomeowner(newUser as Homeowner);
     }
     toPipe.pipe(first())
       .subscribe(

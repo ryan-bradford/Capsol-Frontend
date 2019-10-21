@@ -1,6 +1,10 @@
-import { deserialize, autoserialize, serialize } from 'cerialize';
+import { deserialize, autoserialize, serialize, deserializeAs } from 'cerialize';
+import { Investment } from './Investment';
 
 export class Investor {
+
+    @deserialize
+    id: string;
 
     @autoserialize
     name: string;
@@ -15,5 +19,8 @@ export class Investor {
     pwdHash: string;
 
     @deserialize
-    portfolioValue: number;
+    totalCash: number;
+
+    @deserializeAs(Investment)
+    investments: Investment[];
 }

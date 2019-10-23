@@ -54,18 +54,20 @@ export class InvestorComponent {
   }
 
   getChartData() {
-    const cashData: { name: string, value: number }[] = [];
-    const portfolioData: { name: string, value: number }[] = [];
-    for (let i = this.investor.getEarliestMonthActive(); i <= this.investor.getLastMonthActive(); i++) {
-      cashData.push({
-        name: String(i),
-        value: this.investor.getDepositsAtMonth(i)
+    const cashData: { name: string, value: number }[] =
+      this.investor.portfolioHistory.map((port) => {
+        return {
+          name: String(port.month),
+          value: port.cashDeposit
+        };
       });
-      portfolioData.push({
-        name: String(i),
-        value: this.investor.getValueAtMonth(i)
+    const portfolioData: { name: string, value: number }[] =
+      this.investor.portfolioHistory.map((port) => {
+        return {
+          name: String(port.month),
+          value: port.totalValue
+        };
       });
-    }
     return [{
       name: 'Total Value',
       series: portfolioData

@@ -52,6 +52,12 @@ export class InvestorService {
       map((result) => { return; }));
   }
 
+  public sellInvestment(email: string, amount: number): Observable<void> {
+    return this.http.put(`${environment.apiUrl}/investor/${email}/sell`, { amount }, { withCredentials: true }).pipe(
+      tap((result) => this.getInvestor(email).subscribe()),
+      map((result) => { return; }));
+  }
+
   public handleRequests(): Observable<void> {
     return this.http.post(`${environment.apiUrl}/investor/update`, {}, { withCredentials: true }).pipe(
       tap((result) => this.getInvestors().subscribe()),

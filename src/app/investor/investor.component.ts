@@ -45,6 +45,10 @@ export class InvestorComponent {
     this.investorService.addInvestment(localStorage.getItem('email'), 100).subscribe();
   }
 
+  sellFunds() {
+    this.investorService.sellInvestment(localStorage.getItem('email'), 100).subscribe();
+  }
+
   handleRequests() {
     this.investorService.handleRequests().subscribe();
   }

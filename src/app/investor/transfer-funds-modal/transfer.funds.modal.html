@@ -1,0 +1,36 @@
+<div *ngIf="buyOrSell === undefined">
+    <h1 mat-dialog-title>Transfer Funds</h1>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Exit</button>
+        <button mat-button (click)="buyOrSell = true" cdkFocusInitial>Add Funds</button>
+        <button mat-button (click)="buyOrSell = false" cdkFocusInitial>Withdraw Money</button>
+    </div>
+</div>
+<div *ngIf="buyOrSell === true">
+    <h1 mat-dialog-title>Add Funds</h1>
+    <div mat-dialog-content>
+        <p>How much money would you like to deposit?</p>
+        <mat-form-field>
+            <input matInput type="number" [formControl]="amount">
+            <mat-error *ngIf="amount.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Exit</button>
+        <button mat-button (click)="addFunds()" cdkFocusInitial>Ok</button>
+    </div>
+</div>
+<div *ngIf="buyOrSell === false">
+    <h1 mat-dialog-title>Withdraw Funds</h1>
+    <div mat-dialog-content>
+        <p>How much money would you like to withdraw?</p>
+        <mat-form-field>
+            <input matInput type="number" [formControl]="amount">
+            <mat-error *ngIf="amount.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button (click)="sellFunds()" cdkFocusInitial>Ok</button>
+    </div>
+</div>

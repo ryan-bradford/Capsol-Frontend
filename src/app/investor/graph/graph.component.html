@@ -3,9 +3,7 @@
         [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
         [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel">
     </ngx-charts-area-chart>
-    <div fxLayout="row" fxLayoutAlign="space-around start">
-        <p>Effective Interest: 5%</p>
-        <p>Earnings: ${{getAmountEarned()}}</p>
-        <p>Uninvested: {{cash}}</p>
+    <div fxLayout="row" fxLayoutAlign="center">
+        <p>Effective Interest: {{interestRate}}%</p>
     </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InvestorService } from '../_services/investor.service';
 import { Investor } from '../_entities/Investor';
 import { Investment } from '../_entities/Investment';
+import { PortfolioHistory } from '../_entities/PortfolioHistory';
 
 @Component({
   selector: 'app-investor',
@@ -23,12 +24,14 @@ export class InvestorComponent {
   // Other Pages
   // 1. Settings
   // 2. Transfer money modal.
-  // 3. Investor portfolio page
+  // 3. Transactions page
 
   investor: Investor;
   investments: Investment[];
   cash: number;
-  chartData = [];
+  portfolioHistory: PortfolioHistory[] = [];
+  totalValue: number;
+  earnings: number;
 
   constructor(
     private investorService: InvestorService) {
@@ -36,8 +39,12 @@ export class InvestorComponent {
     this.investorService.getInvestor(localStorage.getItem('email')).subscribe((result) => {
       this.investor = result;
       this.investments = result ? result.investments : [];
-      this.chartData = result ? this.getChartData() : [];
-      this.cash = result ? result.totalCash : 0;
+      this.portfolioHistory = result ? result.portfolioHistory : [];
+      this.cash = result ? Math.round(result.totalCash * 100) / 100 : 0;
+      this.totalValue = result ? Math.round(result.portfolioHistory[result.portfolioHistory.length - 1].totalValue * 100) / 100 : 0;
+      const finalDeposits = result ? Math.round(result.portfolioHistory[result.portfolioHistory.length - 1].cashDeposit * 100) / 100 : 0;
+      this.earnings = this.totalValue - finalDeposits;
+      this.earnings = Math.round(this.earnings * 100) / 100;
     });
   }
 
@@ -55,30 +62,6 @@ export class InvestorComponent {
 
   tickTime() {
     this.investorService.tickTime().subscribe();
-  }
-
-  getChartData() {
-    const cashData: { name: string, value: number }[] =
-      this.investor.portfolioHistory.map((port) => {
-        return {
-          name: String(port.month),
-          value: port.cashDeposit
-        };
-      });
-    const portfolioData: { name: string, value: number }[] =
-      this.investor.portfolioHistory.map((port) => {
-        return {
-          name: String(port.month),
-          value: port.totalValue
-        };
-      });
-    return [{
-      name: 'Total Value',
-      series: portfolioData
-    }, {
-      name: 'Deposits',
-      series: cashData
-    }];
   }
 
 }

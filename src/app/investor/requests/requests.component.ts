@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Investment } from 'src/app/_entities/Investment';
 
 @Component({
-    selector: 'app-portfolio-table',
-    templateUrl: './portfolio.component.html',
-    styleUrls: ['./portfolio.component.less']
+    selector: 'app-requests-table',
+    templateUrl: './requests.component.html',
+    styleUrls: ['./requests.component.less']
 })
-export class PortfolioComponent {
+export class RequestsComponent {
 
     investments: Investment[];
     cash: number;

@@ -1,0 +1,22 @@
+<mat-toolbar color="white" fxLayout="row">
+    <mat-toolbar-row>
+        <span fxFlex=2></span>
+        <span>Investment Account</span>
+        <span fxFlex=4></span>
+        <div fxLayout="column" fxFlex="4" fxLayoutGap="-10px">
+            <h4>${{balance}}</h4>
+            <small>Balance</small>
+        </div>
+        <span fxFlex=6></span>
+        <div fxLayout="column" fxFlex="33" fxLayoutGap="-10px">
+            <h4>${{earnings}}</h4>
+            <small>Earnings</small>
+        </div>
+
+        <!-- This fills the remaining space of the current row -->
+        <span fxFlex></span>
+
+        <button mat-raised-button (click)="openDialog()" color="accent" style="right:5%; top:5px">Transfer
+            Funds</button>
+    </mat-toolbar-row>
+</mat-toolbar>

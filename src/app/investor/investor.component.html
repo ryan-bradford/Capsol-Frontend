@@ -1,20 +1,19 @@
-<div style="height: 100%">
-    <app-investor-toolbar style="height: 10%"></app-investor-toolbar>
-    <div style="height: 90%; background-color: lightgray" fxLayout="column" fxLayoutAlign="space-around center">
-        <div class="chart-holder" fxLayout="column" fxLayoutAlign="space-around end">
-            <button mat-raised-button (click)="addFunds()" color="accent" style="right:5%; top:5px">Transfer
-                Funds</button>
-            <div style="height:10px"></div>
-            <app-investor-graph [chartData]="chartData" [cash]="cash"></app-investor-graph>
-        </div>
-        <app-portfolio-table investments="investments" cash="cash"></app-portfolio-table>
+<app-investor-toolbar style="height: 10%"></app-investor-toolbar>
+<app-investor-overview-toolbar style="height: 10%" [balance]="totalValue" [earnings]="earnings">
+</app-investor-overview-toolbar>
+<div style="background-color: lightgray; min-height: 100%" fxLayout="column" fxLayoutAlign="space-around center">
+    <div style="height:20px"></div>
+    <div class="chart-holder" fxLayout="column" fxLayoutAlign="space-around end">
+        <div style="height:10px"></div>
+        <app-investor-graph [portfolioHistory]="portfolioHistory" [cash]="cash"></app-investor-graph>
+    </div>
 
+    <div style="height:10px"></div>
 
-        <div class="mat-elevation-z8" style="width: 100px">
-            <button mat-button (click)="handleRequests()">Handle Requests!</button>
-        </div>
-        <div class="mat-elevation-z8" style="width: 100px">
-            <button mat-button (click)="tickTime()">Tick Time!</button>
-        </div>
+    <div class="mat-elevation-z8" style="width: 100px">
+        <button mat-button (click)="handleRequests()">Handle Requests!</button>
+    </div>
+    <div class="mat-elevation-z8" style="width: 100px">
+        <button mat-button (click)="tickTime()">Tick Time!</button>
     </div>
 </div>

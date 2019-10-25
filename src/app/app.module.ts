@@ -18,6 +18,10 @@ import { PitchComponent } from './pitch/pitch.component';
 import { HomeownerComponent } from './homeowner/homeowner.component';
 import { InvestorComponent } from './investor/investor.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PortfolioComponent } from './investor/portfolio/portfolio.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { InvestorToolbarComponent } from './investor/toolbar/investor.toolbar.component';
+import { InvestorGraphComponent } from './investor/graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     LoginComponent,
     PitchComponent,
     HomeownerComponent,
-    InvestorComponent
+    InvestorComponent,
+    PortfolioComponent,
+    InvestorToolbarComponent,
+    InvestorGraphComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatProgressSpinnerModule,
     FormsModule,
     MatTableModule,
-    NgxChartsModule
+    NgxChartsModule,
+    FlexLayoutModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

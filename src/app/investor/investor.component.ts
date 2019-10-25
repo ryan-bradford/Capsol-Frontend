@@ -10,26 +10,25 @@ import { Investment } from '../_entities/Investment';
 })
 export class InvestorComponent {
 
+  // Items to show:
+  // 1. Total balance
+  // 2. Outstanding Cash
+  // 3. Effective interest rate
+  // 4. Graph
+  // 5. Transfer money button
+  // 6. Toolbar
+  //      Logout
+  //      Settings button
+  // 7. Key of items
+  // Other Pages
+  // 1. Settings
+  // 2. Transfer money modal.
+  // 3. Investor portfolio page
+
   investor: Investor;
   investments: Investment[];
-  displayedColumns: string[] = ['value'];
+  cash: number;
   chartData = [];
-
-  view: any[] = [700, 400];
-
-  // options
-  showXAxis = true;
-  showYAxis = true;
-  gradient = false;
-  showLegend = true;
-  showXAxisLabel = true;
-  xAxisLabel = 'Time';
-  showYAxisLabel = true;
-  yAxisLabel = 'Value';
-
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
 
   constructor(
     private investorService: InvestorService) {
@@ -38,6 +37,7 @@ export class InvestorComponent {
       this.investor = result;
       this.investments = result ? result.investments : [];
       this.chartData = result ? this.getChartData() : [];
+      this.cash = result ? result.totalCash : 0;
     });
   }
 

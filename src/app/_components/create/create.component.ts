@@ -50,7 +50,11 @@ export class CreateComponent {
       .subscribe(
         data => {
           this.alertService.success('Registration successful', true);
-          this.router.navigate(['../login'], { replaceUrl: true, relativeTo: this.route });
+          if (localStorage.getItem('type') === 'investor') {
+            this.router.navigate(['/investor/login'], { replaceUrl: true, relativeTo: this.route });
+          } else {
+            this.router.navigate(['/homeowner/login'], { replaceUrl: true, relativeTo: this.route });
+          }
         },
         error => {
           this.alertService.error(error);

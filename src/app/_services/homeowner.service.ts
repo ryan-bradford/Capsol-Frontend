@@ -6,6 +6,7 @@ import { map, tap } from 'rxjs/operators';
 import { Deserialize } from 'cerialize';
 import { Homeowner } from '../_entities/Homeowner';
 import { Investor } from '../_entities/Investor';
+import { SolarOption } from '../_entities/SolarOption';
 
 @Injectable({
     providedIn: 'root'
@@ -45,6 +46,11 @@ export class HomeownerService {
         return this.http.post(`${environment.apiUrl}/homeowner`, { user: homeowner }).pipe(
             tap((result) => this.getHomeowner(homeowner.email).subscribe()),
             map((result) => { return; }));
+    }
+
+    public getOptionDetails(option: number): Observable<SolarOption> {
+        return this.http.get(`${environment.apiUrl}/homeowner/options/${option}`, { withCredentials: true }).pipe(
+            map((result) => Deserialize(result, SolarOption)));
     }
 
 }

@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeownerService } from '../_services/homeowner.service';
 import { Contract } from '../_entities/Contract';
+import { SolarOption } from '../_entities/SolarOption';
 
 @Component({
   selector: 'app-homeowner',
   templateUrl: './homeowner.component.html',
   styleUrls: ['./homeowner.component.less']
 })
-export class HomeownerComponent implements OnInit {
+export class HomeownerComponent {
 
   contract: Contract;
+
+  option: number;
+  optionInfo: SolarOption;
 
   constructor(private homeownerService: HomeownerService) {
     localStorage.setItem('type', 'homeowner');
@@ -18,7 +22,13 @@ export class HomeownerComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+
+
+  setOption(option: number) {
+    this.homeownerService.getOptionDetails(option).subscribe((result) => {
+      console.log(result);
+      this.optionInfo = result;
+    });
   }
 
 }

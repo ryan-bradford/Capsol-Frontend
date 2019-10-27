@@ -1,7 +1,18 @@
 <app-homeowner-toolbar></app-homeowner-toolbar>
 
 <div *ngIf="contract === undefined">
-    Sign up!
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <h1 style="height: 0px">Sign up for Panels!</h1>
+        <h3>(first select an option)</h3>
+        <div fxLayout="row" fxLayoutAlign="space-around center" style="width: 100%">
+            <button mat-raised-button color="primary" (click)="setOption(0)">Small</button>
+            <button mat-raised-button color="primary" (click)="setOption(1)">Medium</button>
+            <button mat-raised-button color="primary" (click)="setOption(2)">Large</button>
+        </div>
+    </div>
+    <div *ngIf="option !== undefined">
+        <p>{{optionInfo}}</p>
+    </div>
 </div>
 
 <div *ngIf="contract !== undefined">

@@ -35,7 +35,11 @@ export class LoginComponent {
         data => {
           this.loading = false;
           this.alertService.clear();
-          this.router.navigate(['../'], { replaceUrl: true, relativeTo: this.route });
+          if (localStorage.getItem('type') === 'investor') {
+            this.router.navigate(['/investor'], { replaceUrl: true, relativeTo: this.route });
+          } else {
+            this.router.navigate(['/homeowner'], { replaceUrl: true, relativeTo: this.route });
+          }
         },
         error => {
           this.alertService.error('Invalid credentials');

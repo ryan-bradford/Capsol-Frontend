@@ -1,4 +1,5 @@
-import { deserialize, autoserialize, serialize } from 'cerialize';
+import { deserialize, autoserialize, serialize, deserializeAs } from 'cerialize';
+import { Contract } from './Contract';
 
 export class Homeowner {
 
@@ -13,4 +14,8 @@ export class Homeowner {
 
     @deserialize
     pwdHash: string;
+
+    @deserializeAs(Contract)
+    contract: Contract;
+
 }

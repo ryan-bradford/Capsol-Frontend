@@ -1,1 +1,9 @@
-<p>homeowner works!</p>
+<app-homeowner-toolbar></app-homeowner-toolbar>
+
+<div *ngIf="contract === undefined">
+    Sign up!
+</div>
+
+<div *ngIf="contract !== undefined">
+    {{contract}}
+</div>

@@ -32,19 +32,25 @@ export class InvestorComponent {
   portfolioHistory: PortfolioHistory[] = [];
   totalValue: number;
   earnings: number;
+  interestRate: number;
 
   constructor(
     private investorService: InvestorService) {
     localStorage.setItem('type', 'investor');
     this.investorService.getInvestor(localStorage.getItem('email')).subscribe((result) => {
-      this.investor = result;
-      this.investments = result ? result.investments : [];
-      this.portfolioHistory = result ? result.portfolioHistory : [];
-      this.cash = result ? Math.round(result.totalCash * 100) / 100 : 0;
-      this.totalValue = result ? Math.round(result.portfolioHistory[result.portfolioHistory.length - 1].totalValue * 100) / 100 : 0;
-      const finalDeposits = result ? Math.round(result.portfolioHistory[result.portfolioHistory.length - 1].cashDeposit * 100) / 100 : 0;
-      this.earnings = this.totalValue - finalDeposits;
-      this.earnings = Math.round(this.earnings * 100) / 100;
+      if (result) {
+        this.investor = result;
+        this.investments = result.investments;
+        this.portfolioHistory = result.portfolioHistory;
+        this.cash = Math.round(result.totalCash * 100) / 100;
+        this.totalValue = result.portfolioHistory.length
+          ? Math.round(result.portfolioHistory[result.portfolioHistory.length - 1].totalValue * 100) / 100 : 0;
+        const finalDeposits = result.portfolioHistory.length
+          ? Math.round(result.portfolioHistory[result.portfolioHistory.length - 1].cashDeposit * 100) / 100 : 0;
+        this.earnings = this.totalValue - finalDeposits;
+        this.earnings = Math.round(this.earnings * 100) / 100;
+        this.interestRate = Math.round((result.interestRate) * 1000) / 1000;
+      }
     });
   }
 

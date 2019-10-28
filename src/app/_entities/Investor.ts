@@ -23,6 +23,9 @@ export class Investor {
     @deserialize
     totalCash: number;
 
+    @deserialize
+    interestRate: number;
+
     @deserializeAs(Investment)
     investments: Investment[];
 

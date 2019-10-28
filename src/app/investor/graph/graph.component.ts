@@ -15,10 +15,12 @@ export class InvestorGraphComponent implements OnChanges {
     @Input()
     cash: number;
 
+    @Input()
+    interestRate: number;
+
     view: [number, number] = [window.innerWidth * 0.8, window.innerHeight * 0.6];
 
     // options
-    interestRate = 0;
     amountEarned = 0;
     chartData = [];
     showXAxis = true;
@@ -41,7 +43,6 @@ export class InvestorGraphComponent implements OnChanges {
 
     ngOnChanges(changes: SimpleChanges) {
         this.chartData = this.getChartData();
-        this.interestRate = this.getInterestRate();
         this.amountEarned = this.getAmountEarned();
     }
 
@@ -51,15 +52,6 @@ export class InvestorGraphComponent implements OnChanges {
         }
         return Math.round((this.portfolioHistory[this.portfolioHistory.length - 1].totalValue -
             this.portfolioHistory[this.portfolioHistory.length - 1].cashDeposit) * 100) / 100;
-    }
-
-    getInterestRate(): number {
-        let interestRate = 0;
-        this.portfolioHistory.forEach((portfolio, i) => {
-            interestRate = (portfolio.totalValue - portfolio.cashDeposit) / (portfolio.cashDeposit * 12)
-                + interestRate * i / (i + 1);
-        });
-        return Math.round(interestRate * 1000) / 10;
     }
 
     getChartData() {

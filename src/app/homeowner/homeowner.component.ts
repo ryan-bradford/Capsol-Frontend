@@ -12,23 +12,29 @@ export class HomeownerComponent {
 
   contract: Contract;
 
-  option: number;
   optionInfo: SolarOption;
 
   constructor(private homeownerService: HomeownerService) {
     localStorage.setItem('type', 'homeowner');
     this.homeownerService.getHomeowner(localStorage.getItem('email')).subscribe((result) => {
-      this.contract = result.contract;
+      if (result && result.contract) {
+        this.contract = result.contract;
+        console.log(this.contract.positionInQueue);
+      }
     });
   }
 
 
 
   setOption(option: number) {
-    this.homeownerService.getOptionDetails(option).subscribe((result) => {
-      console.log(result);
+    this.homeownerService.getOptionDetails(localStorage.getItem('email'), option).subscribe((result) => {
       this.optionInfo = result;
     });
+  }
+
+
+  signUp(amount: number) {
+    this.homeownerService.createContract(localStorage.getItem('email'), amount).subscribe();
   }
 
 }

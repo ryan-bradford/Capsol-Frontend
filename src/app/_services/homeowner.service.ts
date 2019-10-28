@@ -48,9 +48,15 @@ export class HomeownerService {
             map((result) => { return; }));
     }
 
-    public getOptionDetails(option: number): Observable<SolarOption> {
-        return this.http.get(`${environment.apiUrl}/homeowner/options/${option}`, { withCredentials: true }).pipe(
+    public getOptionDetails(email: string, option: number): Observable<SolarOption> {
+        return this.http.get(`${environment.apiUrl}/homeowner/${email}/options/${option}`, { withCredentials: true }).pipe(
             map((result) => Deserialize(result, SolarOption)));
+    }
+
+    public createContract(email: string, amount: number): Observable<void> {
+        return this.http.put(`${environment.apiUrl}/homeowner/${email}/home`, { amount }, { withCredentials: true }).pipe(
+            tap((result) => this.getHomeowner(email).subscribe()),
+            map((result) => { return; }));
     }
 
 }

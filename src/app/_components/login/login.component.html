@@ -1,20 +1,21 @@
-<mat-card class="example-card">
+<mat-card class="card" fxLayout="column" fxLayoutAlign="start center">
     <mat-card-header>
-        <mat-card-title>Login</mat-card-title>
+        <mat-card-title class="mat-display-1">Capsol Login</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-        <form class="example-form">
-            <table class="example-full-width" cellspacing="0">
+    <div fxFlex="10"></div>
+    <mat-card-content style="width:40%">
+        <form class="form">
+            <table class="full-width" cellspacing="0">
                 <tr>
                     <td>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field class="form-field">
                             <input matInput placeholder="email" [(ngModel)]="email" name="email" required>
                         </mat-form-field>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <mat-form-field class="example-full-width">
+                        <mat-form-field class="form-field">
                             <input matInput placeholder="Password" [(ngModel)]="password" type="password"
                                 name="password" required>
                         </mat-form-field>

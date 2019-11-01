@@ -10,7 +10,11 @@ import { HomeownerService } from '../../_services/homeowner.service';
 import { Investor } from 'src/app/_entities/Investor';
 import { Homeowner } from 'src/app/_entities/Homeowner';
 
-@Component({ templateUrl: 'create.component.html' })
+@Component({
+  selector: 'app-create',
+  templateUrl: './create.component.html',
+  styleUrls: ['./create.component.less']
+})
 export class CreateComponent {
   loading = false;
   submitted = false;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,12 +6,15 @@ import { Router } from '@angular/router';
   templateUrl: './pitch.component.html',
   styleUrls: ['./pitch.component.scss']
 })
-export class PitchComponent implements OnInit {
+export class PitchComponent {
 
   constructor(private router: Router) { }
 
-  ngOnInit() {
+  selectMarker() {
+    const el: HTMLElement = document.getElementById('awards');
+    el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
   }
+
 
   public redirectToInvestor() {
     localStorage.setItem('type', 'investor');

@@ -14,7 +14,18 @@
 }
 
 .main-image {
-    width: 20%;
-    height: 20vw;
-    background-color: red;
+    width: 30%;
+    height: 30vw;
+    background-image: url('../../assets/pitch/img/macbook.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.awards {
+    width:100%;
+    height: 50px;
+    background-image: url('../../assets/pitch/img/client-logos.png');
+    background-repeat: no-repeat;
+    background-position: center;
 }

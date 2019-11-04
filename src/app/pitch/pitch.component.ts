@@ -8,12 +8,9 @@ import { Router } from '@angular/router';
 })
 export class PitchComponent {
 
-  constructor(private router: Router) { }
+  selected: 'homeowner' | 'investor';
 
-  selectMarker() {
-    const el: HTMLElement = document.getElementById('awards');
-    el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-  }
+  constructor(private router: Router) { }
 
 
   public redirectToInvestor() {
@@ -26,5 +23,21 @@ export class PitchComponent {
     this.router.navigate(['/homeowner']);
   }
 
+  public selectHomeowner() {
+    this.selected = 'homeowner';
+    this.showInfo();
+  }
+
+  public selectInvestor() {
+    this.selected = 'investor';
+    this.showInfo();
+  }
+
+  private showInfo() {
+    const el: HTMLElement = document.getElementById('awards');
+    new Promise(resolve => setTimeout(resolve, 200)).then((fin) => {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    });
+  }
 
 }

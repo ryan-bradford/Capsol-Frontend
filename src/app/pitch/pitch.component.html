@@ -5,27 +5,33 @@
             <div fxFlex></div>
             <button mat-raised-button (click)="this.redirectToHomeowner()">Homeowner Login</button>
             <div fxFlex=2></div>
-            <button mat-raised-button (click)=" this.redirectToInvestor()">Investor Login</button>
+            <button mat-raised-button (click)="this.redirectToInvestor()">Investor Login</button>
         </mat-toolbar-row>
     </mat-toolbar>
     <div fxFlex=20></div>
     <div fxLayout="row" fxLayoutAlign="space-around start" style="width:100%">
         <div fxLayout="column" fxLayoutAlign="start center" style="width: 30%">
-            <h1 class="mat-h1">Crowdsourced Solar Loans</h1>
+            <h1 class="mat-display-1" style="height:0px">Capsol</h1>
             <h4 class="mat-h4" style="text-align: center;">
-                Our company helps to connect every day investors who want to do good yet still make money with
+                Connecting every day investors who want to do good yet still make money with
                 homeowners in order to provide crowdsourced loans.</h4>
-            <div style="height:50px"></div>
-            <h2 class="mat-h2">Who are you?</h2>
+            <div style="height:30px"></div>
+            <h2 class="mat-h2">Want to Know More?</h2>
             <div fxLayout="row" fxLayoutAlign="space-around" style="width:100%">
-                <button mat-raised-button (click)="selectMarker()">Homeowner</button>
-                <button mat-raised-button (click)="selectMarker()">Investor</button>
+                <button mat-raised-button (click)="selectHomeowner()">Homeowner</button>
+                <button mat-raised-button (click)="selectInvestor()">Investor</button>
             </div>
         </div>
         <div class="main-image"></div>
     </div>
 </div>
 <div id="awards" class="awards"></div>
+<div *ngIf="selected==='investor'">
+    Investors!
+</div>
+<div *ngIf="selected==='homeowner'" style="height:80vh">
+    Homeowner!
+</div>
 
 
 <!-- Layout

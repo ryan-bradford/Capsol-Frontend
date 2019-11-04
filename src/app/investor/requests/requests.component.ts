@@ -4,7 +4,7 @@ import { Investment } from 'src/app/_entities/Investment';
 @Component({
     selector: 'app-requests-table',
     templateUrl: './requests.component.html',
-    styleUrls: ['./requests.component.less']
+    styleUrls: ['./requests.component.scss']
 })
 export class RequestsComponent {
 

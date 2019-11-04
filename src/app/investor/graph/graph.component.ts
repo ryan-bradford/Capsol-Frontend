@@ -5,7 +5,7 @@ import { PortfolioHistory } from 'src/app/_entities/PortfolioHistory';
 @Component({
     selector: 'app-investor-graph',
     templateUrl: './graph.component.html',
-    styleUrls: ['./graph.component.less']
+    styleUrls: ['./graph.component.scss']
 })
 export class InvestorGraphComponent implements OnChanges {
 

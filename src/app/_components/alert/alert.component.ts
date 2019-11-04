@@ -6,7 +6,7 @@ import { AlertService } from 'src/app/_services/alert.service';
 @Component({
     selector: 'app-alert-component',
     templateUrl: 'alert.component.html',
-    styleUrls: ['./alert.component.less']
+    styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit, OnDestroy {
     private subscription: Subscription;

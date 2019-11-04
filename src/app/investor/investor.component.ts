@@ -7,7 +7,7 @@ import { PortfolioHistory } from '../_entities/PortfolioHistory';
 @Component({
   selector: 'app-investor',
   templateUrl: './investor.component.html',
-  styleUrls: ['./investor.component.less']
+  styleUrls: ['./investor.component.scss']
 })
 export class InvestorComponent {
 

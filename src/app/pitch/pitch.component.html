@@ -1,4 +1,63 @@
-<p>pitch works!</p>
-
+<div class="color-splash" fxLayout="column">
+    <mat-toolbar color="primary" class="toolbar">
+        <mat-toolbar-row>
+            <span>Capsol</span>
+            <div fxFlex></div>
+            <button mat-button>Homeowner Login</button>
+            <button mat-button>Investor Login</button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <div fxFlex=20></div>
+    <div fxLayout="row" fxLayoutAlign="space-around start" style="width:100%">
+        <div fxLayout="column" fxLayoutAlign="start center" style="width: 30%">
+            <h1 class="mat-h1">Crowdsourced Solar Loans</h1>
+            <h4 class="mat-h4" style="text-align: center;">
+                Our company helps to connect every day investors who want to do good yet still make money with
+                homeowners in order to provide crowdsourced loans.</h4>
+            <div style="height:50px"></div>
+            <h2 class="mat-h2">Who are you?</h2>
+            <div fxLayout="row" fxLayoutAlign="space-around" style="width:100%">
+                <button mat-raised-button>Homeowner</button>
+                <button mat-raised-button>Investor</button>
+            </div>
+        </div>
+        <div class="main-image"></div>
+    </div>
+</div>
+<div style="height: 100vh; width:100%">
+    hello!
+</div>
 <button mat-button (click)="this.redirectToInvestor()">Investor</button>
 <button mat-button (click)="this.redirectToHomeowner()">Homeowner</button>
+
+
+<!-- Layout
+    Nav-Bar : Always On Top (logo + links + logins)
+    Tagline + Image of Investor App
+    Select investor or homeowner
+    Pitching Competitions + Awards
+
+    Investor:
+        Generic pitch (include target rate)
+        Our Features
+            Invest money
+            Sell investments
+            See green impact
+        Historical performance graph
+            How tf do I do this?
+        What if I invested this much?
+            Financial savings?
+            Green savings?
+    Homeowner:
+        Generic pitch (include number of homes + average rate)
+        Out Features
+            Simple sign-up
+            No equity
+            Market rate
+        What if I sign up my home up?
+            Enter address + monthly electricity bill
+                Expected payment
+                Expected savings
+                Green impact
+        What if I move?
+-->

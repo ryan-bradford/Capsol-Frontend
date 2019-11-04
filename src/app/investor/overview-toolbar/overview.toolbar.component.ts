@@ -7,7 +7,7 @@ import { TransferFundsModalComponent } from '../transfer-funds-modal/transfer.fu
 @Component({
     selector: 'app-investor-overview-toolbar',
     templateUrl: './overview.toolbar.component.html',
-    styleUrls: ['./overview.toolbar.component.less']
+    styleUrls: ['./overview.toolbar.component.scss']
 })
 export class InvestorOverviewToolbarComponent {
 

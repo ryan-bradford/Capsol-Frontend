@@ -13,7 +13,7 @@ import { Homeowner } from 'src/app/_entities/Homeowner';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
-  styleUrls: ['./create.component.less']
+  styleUrls: ['./create.component.scss']
 })
 export class CreateComponent {
   loading = false;

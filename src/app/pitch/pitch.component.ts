@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-pitch',
   templateUrl: './pitch.component.html',
-  styleUrls: ['./pitch.component.less']
+  styleUrls: ['./pitch.component.scss']
 })
 export class PitchComponent implements OnInit {
 

@@ -6,7 +6,7 @@ import { SolarOption } from '../_entities/SolarOption';
 @Component({
   selector: 'app-homeowner',
   templateUrl: './homeowner.component.html',
-  styleUrls: ['./homeowner.component.less']
+  styleUrls: ['./homeowner.component.scss']
 })
 export class HomeownerComponent {
 

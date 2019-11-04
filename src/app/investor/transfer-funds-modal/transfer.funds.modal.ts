@@ -10,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 @Component({
     selector: 'app-transfer-funds-modal',
     templateUrl: 'transfer.funds.modal.html',
-    styleUrls: ['transfer.funds.modal.less'],
+    styleUrls: ['transfer.funds.modal.scss'],
 })
 export class TransferFundsModalComponent {
 

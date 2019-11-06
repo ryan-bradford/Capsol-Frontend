@@ -1,16 +1,18 @@
 @import '~@angular/material/theming';
+@import '../../common-colors.scss';
 
 .color-splash { 
-    background-image: linear-gradient(to right, lightgreen , aquamarine);
+    background-image: linear-gradient(to right, mat-color(mat-palette($md-primary, 200)), mat-color(mat-palette($md-primary, 400)));
     width: 100%;
     height: 100vh;
 }
 
 .toolbar {
     @include mat-elevation(4);
-    background-color: green;
+    background-color: $accent;
     width: 100%;
     height: 10vh;
+    color: black;
 }
 
 .main-image {
@@ -28,4 +30,35 @@
     background-image: url('../../assets/pitch/img/client-logos.png');
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.features {
+    height: 40vh;
+    width: 100%;
+    background-color: mat-color(mat-palette($md-darkcolor, 50));
+}
+
+.main-stat-container {
+    border: 5px solid $darkcolor;
+    border-radius: 25px;
+    width: 90%;
+}
+
+.stat-container {
+    border-radius: 25px;
+    width: 100%;
+}
+
+.main-stat-icon {
+    font-size: 250px;
+    height: 200px;
+    width: 250px;
+    color: mat-color(mat-palette($md-primary, 200));
+}
+
+.stat-icon {
+    font-size: 150px;
+    height: 100px;
+    width: 150px;
+    color: mat-color(mat-palette($md-primary, 200));
 }

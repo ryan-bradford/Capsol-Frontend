@@ -1,0 +1,120 @@
+@import '~@angular/material/theming';
+
+$md-darkcolor: (
+    50 : #e1e3e5,
+    100 : #b5babd,
+    200 : #848c91,
+    300 : #525e65,
+    400 : #2d3c44,
+    500 : #081923,
+    600 : #07161f,
+    700 : #06121a,
+    800 : #040e15,
+    900 : #02080c,
+    A100 : #50a7ff,
+    A200 : #1d8eff,
+    A400 : #0074e9,
+    A700 : #0068cf,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+$md-accent: (
+    50 : #fdfbed,
+    100 : #fbf4d2,
+    200 : #f9edb4,
+    300 : #f6e695,
+    400 : #f4e07f,
+    500 : #f2db68,
+    600 : #f0d760,
+    700 : #eed255,
+    800 : #eccd4b,
+    900 : #e8c43a,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #fff4cd,
+    A700 : #ffeeb3,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-primary: (
+    50 : #e4eff1,
+    100 : #bcd7dd,
+    200 : #8fbdc6,
+    300 : #62a2af,
+    400 : #418e9d,
+    500 : #1f7a8c,
+    600 : #1b7284,
+    700 : #176779,
+    800 : #125d6f,
+    900 : #0a4a5c,
+    A100 : #90e4ff,
+    A200 : #5dd7ff,
+    A400 : #2acaff,
+    A700 : #10c4ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+$app-primary: mat-palette($md-primary, 600);
+$app-accent:  mat-palette($md-accent, 300);
+$app-warn:    mat-palette($mat-deep-orange, 400);
+$app-dark-color:    mat-palette($md-darkcolor, 400);
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+// Create your Sass color vars (will be available in all the project)
+$primary: mat-color($app-primary);
+$accent: mat-color($app-accent);
+$warn: mat-color($app-warn);
+$darkcolor: mat-color($app-dark-color);

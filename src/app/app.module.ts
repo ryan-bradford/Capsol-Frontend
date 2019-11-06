@@ -25,6 +25,7 @@ import { InvestorGraphComponent } from './investor/graph/graph.component';
 import { InvestorOverviewToolbarComponent } from './investor/overview-toolbar/overview.toolbar.component';
 import { TransferFundsModalComponent } from './investor/transfer-funds-modal/transfer.funds.modal';
 import { HomeownerToolbarComponent } from './homeowner/toolbar/homeowner.toolbar.component';
+import { FeatureItemComponent } from './pitch/feature-item/feature-item.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HomeownerToolbarComponent } from './homeowner/toolbar/homeowner.toolbar
     InvestorGraphComponent,
     InvestorOverviewToolbarComponent,
     TransferFundsModalComponent,
-    HomeownerToolbarComponent
+    HomeownerToolbarComponent,
+    FeatureItemComponent
   ],
   imports: [
     BrowserModule,

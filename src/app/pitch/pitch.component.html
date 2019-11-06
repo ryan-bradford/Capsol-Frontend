@@ -1,5 +1,5 @@
 <div class="color-splash" fxLayout="column">
-    <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar class="toolbar">
         <mat-toolbar-row>
             <span>Capsol</span>
             <div fxFlex></div>
@@ -29,8 +29,52 @@
 <div *ngIf="selected==='investor'">
     Investors!
 </div>
-<div *ngIf="selected==='homeowner'" style="height:80vh">
-    Homeowner!
+<div *ngIf="selected==='homeowner'" fxLayout="column" fxLayoutAlign="start center">
+    <div class="features" fxLayout="column" fxLayoutAlign="start center">
+        <h1 class="mat-h1">Why us?</h1>
+        <div fxLayout="row" fxLayoutAlign="space-around center" style="width:100%">
+            <app-feature-item></app-feature-item>
+            <app-feature-item></app-feature-item>
+            <app-feature-item></app-feature-item>
+        </div>
+    </div>
+    <div style="height:10px"></div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" class="main-stat-container">
+        <div fxLayout="column" style="width:50%" fxLayoutAlign="start center">
+            <mat-icon class="main-stat-icon">house</mat-icon>
+            <h1>Panels Installed: 1000</h1>
+        </div>
+        <div style="width:50%" fxLayout="column" fxLayoutAlign="start center">
+            <div class="stat-container" fxLayout="column" fxLayoutAlign="start center">
+                <mat-icon class="stat-icon">attach_money</mat-icon>
+                <h1>Money Saved: $10000</h1>
+            </div>
+            <div class="stat-container" fxLayout="column" fxLayoutAlign="start center">
+                <mat-icon class="stat-icon">cloud</mat-icon>
+                <h1>Carbon Avoided: 100 Tons</h1>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <h1>Steps</h1>
+        <h2>1. Sign Up and Added to Waitlist</h2>
+        <h2>2. Receive Investment + Solar Panels</h2>
+        <h2>3. Make Monthly Payment</h2>
+        <h2>4. Save money + own panels!</h2>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <h1>Get an Estimate Now!</h1>
+        <button mat-raised-button>Get Estimate</button>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <h1>Worried About Having to Move?</h1>
+        <h2>All contracts are fully transferable and payable at anytime!</h2>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <h1>Convinced?</h1>
+        <button mat-raised-button>Make an Account!</button>
+    </div>
+
 </div>
 
 

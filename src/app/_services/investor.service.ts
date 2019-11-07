@@ -59,13 +59,13 @@ export class InvestorService {
   }
 
   public handleRequests(): Observable<void> {
-    return this.http.post(`${environment.apiUrl}/investor/update`, {}, { withCredentials: true }).pipe(
+    return this.http.post(`${environment.apiUrl}/admin/update`, {}, { withCredentials: true }).pipe(
       tap((result) => this.getInvestors().subscribe()),
       map((result) => { return; }));
   }
 
   public tickTime(): Observable<void> {
-    return this.http.post(`${environment.apiUrl}/homeowner/payments`, {}, { withCredentials: true }).pipe(
+    return this.http.post(`${environment.apiUrl}/admin/payments`, {}, { withCredentials: true }).pipe(
       tap((result) => this.getInvestors().subscribe()),
       map((result) => { return; }));
   }

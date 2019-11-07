@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { faCloud, faDollarSign, faHome, faGrin, faSolarPanel, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { MatDialog } from '@angular/material';
+import { HomeownerEstimateModalComponent } from './homeowner-estimate/homeowner.estimate.modal';
 
 @Component({
   selector: 'app-pitch',
@@ -11,14 +12,7 @@ export class PitchComponent {
 
   selected: 'homeowner' | 'investor';
 
-  cloud = faCloud;
-  dollar = faDollarSign;
-  solar = faSolarPanel;
-  smile = faGrin;
-  loanIcon = faHome;
-  chart = faChartLine;
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dialog: MatDialog) { }
 
 
   public redirectToInvestor() {
@@ -39,6 +33,10 @@ export class PitchComponent {
   public selectInvestor() {
     this.selected = 'investor';
     this.showInfo();
+  }
+
+  public getEstimate() {
+    this.dialog.open(HomeownerEstimateModalComponent);
   }
 
   private showInfo() {

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatDialogModule, MatButtonModule, MatCardModule, MatToolbarModule,
-  MatInputModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSnackBarModule
+  MatInputModule, MatTableModule, MatMenuModule, MatIconModule, MatProgressSpinnerModule, MatSnackBarModule, MatProgressBarModule
 } from '@angular/material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ErrorInterceptor } from './_helper/error.interceptor';
@@ -26,6 +26,7 @@ import { InvestorOverviewToolbarComponent } from './investor/overview-toolbar/ov
 import { TransferFundsModalComponent } from './investor/transfer-funds-modal/transfer.funds.modal';
 import { HomeownerToolbarComponent } from './homeowner/toolbar/homeowner.toolbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeownerEstimateModalComponent } from './pitch/homeowner-estimate/homeowner.estimate.modal';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     InvestorGraphComponent,
     InvestorOverviewToolbarComponent,
     TransferFundsModalComponent,
+    HomeownerEstimateModalComponent,
     HomeownerToolbarComponent,
   ],
   imports: [
@@ -63,12 +65,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatTableModule,
     NgxChartsModule,
     FlexLayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TransferFundsModalComponent]
+  entryComponents: [TransferFundsModalComponent, HomeownerEstimateModalComponent]
 })
 export class AppModule { }

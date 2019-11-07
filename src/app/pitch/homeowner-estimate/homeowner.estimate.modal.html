@@ -1,0 +1,58 @@
+<div *ngIf="addressSet === false">
+    <h1 mat-dialog-title>Enter Your Address</h1>
+    <p>Don't worry! We won't send you anything.</p>
+    <div [formGroup]="address" mat-dialog-content fxLayout="column">
+        <mat-form-field>
+            <input matInput type="text" formControlName="street" placeholder="St.">
+            <mat-error *ngIf="address.get('street').invalid">Street is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="city" placeholder="City">
+            <mat-error *ngIf="address.get('city').invalid">City is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="state" placeholder="State">
+            <mat-error *ngIf="address.get('state').invalid">State is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput type="text" formControlName="zip" placeholder="Zipcode">
+            <mat-error *ngIf="address.get('zip').invalid">Zipcode is required</mat-error>
+        </mat-form-field>
+
+        <button mat-button class="address-button" [disabled]="this.address.invalid"
+            (click)="addressSubmitted()">Next</button>
+    </div>
+</div>
+
+<div *ngIf="addressSet === true && electricitySet === false">
+    <div mat-dialog-content>
+        <h1 mat-dialog-title>What's Your Monthly Electricity Bill?</h1>
+        <mat-form-field>
+            <input matInput type="number" [formControl]="electricityBill" placeholder="$ per month">
+            <mat-error *ngIf="electricityBill.invalid">{{getElectricityErrorMessage()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-button class="address-button" [disabled]="this.electricityBill.invalid"
+            (click)="electricitySubmitted()">Next</button>
+    </div>
+</div>
+
+<div *ngIf="addressSet === true && electricitySet === true && estimateResults === undefined">
+    <div mat-dialog-content fxLayout="column" fxLayoutAlign="center center">
+        <h1 mat-dialog-title>Querying The Professionals...</h1>
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+
+<div *ngIf="addressSet === true && electricitySet === true && estimateResults !== undefined">
+    <div mat-dialog-content fxLayout="column" fxLayoutAlign="center start">
+        <h1 mat-dialog-title>Your Results:</h1>
+        <h2>Your electricity bill will go down by about ${{100}}</h2>
+        <h2>We will charge you ${{50}}</h2>
+        <h2>Saving you ${{50}}!!</h2>
+    </div>
+</div>

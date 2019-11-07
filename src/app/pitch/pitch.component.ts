@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { faCloud, faDollarSign, faHome, faGrin, faSolarPanel, faChartLine } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pitch',
@@ -9,6 +10,13 @@ import { Router } from '@angular/router';
 export class PitchComponent {
 
   selected: 'homeowner' | 'investor';
+
+  cloud = faCloud;
+  dollar = faDollarSign;
+  solar = faSolarPanel;
+  smile = faGrin;
+  loanIcon = faHome;
+  chart = faChartLine;
 
   constructor(private router: Router) { }
 

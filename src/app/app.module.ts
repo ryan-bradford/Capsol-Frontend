@@ -25,7 +25,7 @@ import { InvestorGraphComponent } from './investor/graph/graph.component';
 import { InvestorOverviewToolbarComponent } from './investor/overview-toolbar/overview.toolbar.component';
 import { TransferFundsModalComponent } from './investor/transfer-funds-modal/transfer.funds.modal';
 import { HomeownerToolbarComponent } from './homeowner/toolbar/homeowner.toolbar.component';
-import { FeatureItemComponent } from './pitch/feature-item/feature-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,6 @@ import { FeatureItemComponent } from './pitch/feature-item/feature-item.componen
     InvestorOverviewToolbarComponent,
     TransferFundsModalComponent,
     HomeownerToolbarComponent,
-    FeatureItemComponent
   ],
   imports: [
     BrowserModule,
@@ -64,6 +63,7 @@ import { FeatureItemComponent } from './pitch/feature-item/feature-item.componen
     MatTableModule,
     NgxChartsModule,
     FlexLayoutModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

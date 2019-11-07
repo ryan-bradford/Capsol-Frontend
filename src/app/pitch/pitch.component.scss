@@ -1,10 +1,13 @@
 @import '~@angular/material/theming';
 @import '../../common-colors.scss';
 
-.color-splash { 
-    background-image: linear-gradient(to right, mat-color(mat-palette($md-primary, 200)), mat-color(mat-palette($md-primary, 400)));
+.use-app-font {
+    font-family: 'proxima-thin', 'arial', sans-serif;
+}
+
+.main-screen { 
     width: 100%;
-    height: 100vh;
+    height: 85vh;
 }
 
 .toolbar {
@@ -15,13 +18,21 @@
     color: black;
 }
 
-.main-image {
-    width: 40%;
-    height: 30vw;
-    background-image: url('../../assets/pitch/img/macbook.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
+.company-name {
+    font-family: 'trench', 'arial', sans-serif;
+}
+
+.type-button {
+    background-color: $accent;
+    width: 190px;
+    height: 60px;
+    font-size: 30px;
+}
+
+.color-splash {
+    background-color: $primary;
+    width: 100%;
+    height: 10vh;
 }
 
 .awards {
@@ -32,33 +43,33 @@
     background-position: center;
 }
 
-.features {
-    height: 40vh;
-    width: 100%;
-    background-color: mat-color(mat-palette($md-darkcolor, 50));
-}
-
-.main-stat-container {
-    border: 5px solid $darkcolor;
-    border-radius: 25px;
-    width: 90%;
-}
-
 .stat-container {
-    border-radius: 25px;
     width: 100%;
+    background-color: $primary;
 }
 
-.main-stat-icon {
-    font-size: 250px;
-    height: 200px;
-    width: 250px;
-    color: mat-color(mat-palette($md-primary, 200));
+.stat-item {
+    width: 33%;
+    height: 100%;
+    color: white;
+    margin-bottom: 10vh;
 }
 
-.stat-icon {
-    font-size: 150px;
-    height: 100px;
-    width: 150px;
-    color: mat-color(mat-palette($md-primary, 200));
+.solar-image {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 15%;
+}
+
+.why-container {
+    width: 50%;
+}
+
+.why-item {
+    width: 50%;
+}
+
+.why-title {
+    height: 0px;
+    font-family: 'proxima-bold', 'arial', sans-serif;
 }

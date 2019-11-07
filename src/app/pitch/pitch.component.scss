@@ -63,6 +63,7 @@
 
 .why-container {
     width: 50%;
+    margin-bottom: 10%;
 }
 
 .why-item {
@@ -72,4 +73,35 @@
 .why-title {
     height: 0px;
     font-family: 'proxima-bold', 'arial', sans-serif;
+}
+
+.main-step-container {
+    background-color: mat-color(mat-palette($md-darkcolor, 50));
+}
+
+.step-container {
+    width: 50%;
+    margin-left: 20%;
+    margin-bottom: 5%;
+}
+
+.step-item {
+    width: 50%;
+}
+
+.step-title {
+    height: 0px;
+    font-family: 'proxima-bold', 'arial', sans-serif;
+}
+
+.solar-image2 {
+    width: 50%;
+    margin-right: 20%;
+    margin-top: 15%;
+}
+
+.footer {
+    background-color: $primary;
+    height: 20vh;
+    width: 100%;
 }

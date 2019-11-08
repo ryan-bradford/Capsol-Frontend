@@ -2,8 +2,17 @@ import { deserialize } from 'cerialize';
 
 export class EstimateResult {
     @deserialize
-    monthlyPayment: number;
+    public contractSize: number;
 
     @deserialize
-    billReduction: number;
+    public monthlyPayment: number;
+
+    @deserialize
+    public billReduction: number;
+
+    @deserialize
+    public yearlyCarbonSavings: number;
+
+    @deserialize
+    public length: number;
 }

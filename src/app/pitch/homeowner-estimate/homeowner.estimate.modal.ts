@@ -4,6 +4,7 @@ import { InvestorService } from 'src/app/_services/investor.service';
 import { MatSnackBar } from '@angular/material';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EstimateService } from 'src/app/_services/estimate.service';
+import { EstimateResult } from 'src/app/_entities/EstimateResult';
 
 /**
  * @title Dialog Overview
@@ -27,7 +28,7 @@ export class HomeownerEstimateModalComponent {
     addressSet = false;
     electricitySet = false;
 
-    estimateResults = undefined;
+    estimateResults: EstimateResult;
 
     constructor(
         public dialogRef: MatDialogRef<HomeownerEstimateModalComponent>,
@@ -40,7 +41,11 @@ export class HomeownerEstimateModalComponent {
 
     electricitySubmitted() {
         this.electricitySet = true;
-        this.estimateService.getHomeownerEstimate('', 0).subscribe((result) => {
+        const bill = this.electricityBill.value;
+        const address = this.address.get('street').value + ' ' +
+            this.address.get('city').value + ' ' + this.address.get('state').value
+            + ', ' + this.address.get('zip').value;
+        this.estimateService.getHomeownerEstimate(address, bill).subscribe((result) => {
             this.estimateResults = result;
         });
     }

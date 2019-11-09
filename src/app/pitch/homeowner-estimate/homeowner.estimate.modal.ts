@@ -4,7 +4,8 @@ import { InvestorService } from 'src/app/_services/investor.service';
 import { MatSnackBar } from '@angular/material';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EstimateService } from 'src/app/_services/estimate.service';
-import { EstimateResult } from 'src/app/_entities/EstimateResult';
+import { EstimateResult } from 'src/app/_entities/contract/EstimateResult';
+import { Router } from '@angular/router';
 
 /**
  * @title Dialog Overview
@@ -33,6 +34,7 @@ export class HomeownerEstimateModalComponent {
     constructor(
         public dialogRef: MatDialogRef<HomeownerEstimateModalComponent>,
         private estimateService: EstimateService,
+        private router: Router,
         @Inject(MAT_DIALOG_DATA) public data: any) { }
 
     addressSubmitted() {
@@ -54,6 +56,12 @@ export class HomeownerEstimateModalComponent {
         return this.electricityBill.hasError('required') ? 'You must enter a number' :
             this.electricityBill.hasError('min') ? 'Not a valid amount' :
                 '';
+    }
+
+    goToHomeowner() {
+        localStorage.setItem('type', 'homeowner');
+        this.router.navigate(['./homeowner']);
+        this.dialogRef.close();
     }
 
 }

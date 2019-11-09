@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeownerService } from '../_services/homeowner.service';
-import { Contract } from '../_entities/Contract';
-import { SolarOption } from '../_entities/SolarOption';
+import { Contract } from '../_entities/contract/Contract';
+import { SolarOption } from '../_entities/contract/SolarOption';
 
 @Component({
   selector: 'app-homeowner',

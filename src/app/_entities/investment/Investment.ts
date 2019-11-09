@@ -2,22 +2,22 @@ import { deserialize } from 'cerialize';
 
 export class Investment {
     @deserialize
-    id: string;
+    public id: string;
 
     @deserialize
-    totalContractLength: number;
+    public totalContractLength: number;
 
     @deserialize
-    firstPaymentDate: number;
+    public firstPaymentDate: number;
 
     @deserialize
-    saleAmount: number;
+    public saleAmount: number;
 
     @deserialize
-    monthlyEarnings: number;
+    public monthlyEarnings: number;
 
     @deserialize
-    ownerId: string;
+    public ownerId: string;
 
     public getReturnedValueAt(month: number): number {
         if (this.firstPaymentDate === null) {

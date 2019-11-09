@@ -2,14 +2,14 @@ import { deserialize } from 'cerialize';
 
 export class CashDeposit {
     @deserialize
-    id: string;
+    public id: string;
 
     @deserialize
-    userId: string;
+    public userId: string;
 
     @deserialize
-    amount: number;
+    public amount: number;
 
     @deserialize
-    date: number;
+    public date: number;
 }

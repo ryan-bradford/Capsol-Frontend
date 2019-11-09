@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Investment } from 'src/app/_entities/Investment';
+import { Investment } from 'src/app/_entities/investment/Investment';
 import { InvestorService } from 'src/app/_services/investor.service';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { TransferFundsModalComponent } from '../transfer-funds-modal/transfer.funds.modal';

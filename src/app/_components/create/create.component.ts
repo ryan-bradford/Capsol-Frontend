@@ -7,8 +7,8 @@ import { AuthService } from '../../_services/auth.service';
 import { AlertService } from '../../_services/alert.service';
 import { Observable } from 'rxjs';
 import { HomeownerService } from '../../_services/homeowner.service';
-import { Investor } from 'src/app/_entities/Investor';
-import { Homeowner } from 'src/app/_entities/Homeowner';
+import { Investor } from 'src/app/_entities/user/Investor';
+import { Homeowner } from 'src/app/_entities/user/Homeowner';
 
 @Component({
   selector: 'app-create',

@@ -53,6 +53,8 @@
         <h1 mat-dialog-title>Your Results:</h1>
         <h1>Net Savings: ${{estimateResults.getSavings()}} Per Month</h1>
         <h1>Carbon Impact: {{estimateResults.yearlyCarbonSavings}} Tons a Year</h1>
+        <button mat-button class="address-button" (click)='this.goToHomeowner(); $event.stopPropagation()'>Sign Up
+            Now!</button>
         <h4 style="height:0px">Breakdown:</h4>
         <h4 style="height:0px">We will charge ${{estimateResults.monthlyPayment}} a month for {{estimateResults.length}}
             years</h4>

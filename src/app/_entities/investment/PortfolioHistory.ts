@@ -3,12 +3,12 @@ import { deserialize } from 'cerialize';
 export class PortfolioHistory {
 
     @deserialize
-    month: number;
+    public month: number;
 
     @deserialize
-    cashDeposit: number;
+    public cashDeposit: number;
 
     @deserialize
-    totalValue: number;
+    public totalValue: number;
 
 }

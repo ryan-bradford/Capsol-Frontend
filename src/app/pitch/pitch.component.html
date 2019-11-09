@@ -25,81 +25,169 @@
 <div id="awards" class="awards"></div>
 <div class="color-splash"></div>
 <div *ngIf="selected==='investor'">
-    Investors!
+    <div *ngIf="investorStatInfo === undefined">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div *ngIf="investorStatInfo !== undefined">
+        <div fxLayout="row" fxLayoutAlign="start top" style="width: 100%" class="stat-container">
+            <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
+                <h3 style="height: 10px" class="use-app-font">Carbon Reduced</h3>
+                <h1 class="use-app-font mat-display-3" style="height: 0px">{{investorStatInfo.carbonReduction}}+ Tons
+                </h1>
+                <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
+            </div>
+            <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
+                <h3 style="height: 10px" class="use-app-font">Target Rate</h3>
+                <h1 class="use-app-font mat-display-3" style="height: 0px">{{investorStatInfo.targetRate}}%</h1>
+                <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
+            </div>
+            <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
+                <h3 style="height: 10px" class="use-app-font">Money Managed</h3>
+                <h1 class="use-app-font mat-display-3" style="height: 0px">${{investorStatInfo.totalPortfolio}}+</h1>
+                <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
+            </div>
+        </div>
+        <div style="height:10px"></div>
+        <div fxLayout="row" fxLayoutAlign="start start" style="width:100%">
+            <div style="width: 60%">
+                <img src="../../assets/pitch/img/invest.png" alt="Invest Illustration" class="invest-image">
+            </div>
+            <div fxLayout="column" fxLayoutAlign="start space-between" class="why-container">
+                <div style="height:30px"></div>
+                <h1>Why Invest In Capsol?</h1>
+                <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
+                    <p class="why-title">Competitive Interest Rate</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
+                    <p class="why-title">Do Social Good</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
+                    <p class="why-title">Withdraw at Anytime</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" style="width:100%" class="main-step-container">
+            <div fxLayout="column" fxLayoutAlign="start space-between" class="step-container">
+                <div style="height:30px"></div>
+                <h1>Steps to Invest</h1>
+                <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
+                    <p class="step-title">1. Sign up and deposit funds</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
+                    <p class="step-title">2. Money invested + get returns</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
+                    <p class="step-title">3. Withdraw money at any time</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+            </div>
+            <div style="width: 60%">
+                <img src="../../assets/pitch/img/invest2.png" alt="Sun" class="invest-image2">
+            </div>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="start center">
+            <h1>Historical Performance</h1>
+            <app-investor-graph [portfolioHistory]="portfolioHistory" [cash]="cash" [interestRate]="interestRate">
+            </app-investor-graph>
+            <h1>Convinced?</h1>
+            <button mat-raised-button class="type-button" style="width:300px" (click)="redirectToInvestor()">Sign Up
+                Now!</button>
+            <div style="height:5vh"></div>
+            <!-- Enters in a flow that ends in create an account -->
+        </div>
+    </div>
+    <div class="footer"></div>
 </div>
 <div *ngIf="selected==='homeowner'" fxLayout="column" fxLayoutAlign="start center">
-    <div fxLayout="row" fxLayoutAlign="start top" style="width: 100%" class="stat-container">
-        <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-            <h3 style="height: 10px" class="use-app-font">Panels Installed</h3>
-            <h1 class="use-app-font mat-display-3" style="height: 0px">1000+</h1>
-            <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
-        </div>
-        <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-            <h3 style="height: 10px" class="use-app-font">Carbon Reduced</h3>
-            <h1 class="use-app-font mat-display-3" style="height: 0px">100+ Tons</h1>
-            <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
-        </div>
-        <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-            <h3 style="height: 10px" class="use-app-font">Money Saved</h3>
-            <h1 class="use-app-font mat-display-3" style="height: 0px">$100000+</h1>
-            <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
-        </div>
+    <div *ngIf="homeownerStatInfo === undefined">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </div>
-    <div style="height:10px"></div>
-    <div fxLayout="row" fxLayoutAlign="start start" style="width:100%">
-        <div style="width: 60%">
-            <img src="../../assets/pitch/img/solar-illustration.png" alt="Solar Illustration" class="solar-image">
-        </div>
-        <div fxLayout="column" fxLayoutAlign="start space-between" class="why-container">
-            <div style="height:30px"></div>
-            <h1>Why Choose Capsol?</h1>
-            <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
-                <p class="why-title">Simple, Quick, Pain Free</p>
-                <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
-                    Blorg Blorg </p>
+    <div *ngIf="homeownerStatInfo !== undefined">
+        <div fxLayout="row" fxLayoutAlign="start top" style="width: 100%" class="stat-container">
+            <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
+                <h3 style="height: 10px" class="use-app-font">Panels Installed</h3>
+                <h1 class="use-app-font mat-display-3" style="height: 0px">{{homeownerStatInfo.totalPanels}}+</h1>
+                <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
-            <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
-                <p class="why-title">No Home Equity</p>
-                <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
-                    Blorg Blorg </p>
+            <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
+                <h3 style="height: 10px" class="use-app-font">Carbon Reduced</h3>
+                <h1 class="use-app-font mat-display-3" style="height: 0px">{{homeownerStatInfo.carbonReduction}}+ Tons
+                </h1>
+                <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
-            <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
-                <p class="why-title">Fair Market Rate</p>
-                <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
-                    Blorg Blorg </p>
+            <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
+                <h3 style="height: 10px" class="use-app-font">Money Saved</h3>
+                <h1 class="use-app-font mat-display-3" style="height: 0px">${{homeownerStatInfo.totalSavings}}+</h1>
+                <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
         </div>
-    </div>
-    <div fxLayout="row" fxLayoutAlign="start start" style="width:100%" class="main-step-container">
-        <div fxLayout="column" fxLayoutAlign="start space-between" class="step-container">
-            <div style="height:30px"></div>
-            <h1>Steps to Solar</h1>
-            <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
-                <p class="step-title">1. Sign Up and Added to Waitlist</p>
-                <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
-                    Blorg Blorg </p>
+        <div style="height:10px"></div>
+        <div fxLayout="row" fxLayoutAlign="start start" style="width:100%">
+            <div style="width: 60%">
+                <img src="../../assets/pitch/img/solar-illustration.png" alt="Solar Illustration" class="solar-image">
             </div>
-            <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
-                <p class="step-title">2. Receive Investment + Solar Panels</p>
-                <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
-                    Blorg Blorg </p>
-            </div>
-            <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
-                <p class="step-title">3. Make Monthly Payment</p>
-                <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
-                    Blorg Blorg </p>
+            <div fxLayout="column" fxLayoutAlign="start space-between" class="why-container">
+                <div style="height:30px"></div>
+                <h1>Why Choose Capsol?</h1>
+                <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
+                    <p class="why-title">Simple, Quick, Pain Free</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
+                    <p class="why-title">No Home Equity</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
+                    <p class="why-title">Fair Market Rate</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
             </div>
         </div>
-        <div style="width: 60%">
-            <img src="../../assets/pitch/img/sun.png" alt="Sun" class="solar-image2">
+        <div fxLayout="row" fxLayoutAlign="start start" style="width:100%" class="main-step-container">
+            <div fxLayout="column" fxLayoutAlign="start space-between" class="step-container">
+                <div style="height:30px"></div>
+                <h1>Steps to Solar</h1>
+                <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
+                    <p class="step-title">1. Sign Up and Added to Waitlist</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
+                    <p class="step-title">2. Receive Investment + Solar Panels</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" class="step-item">
+                    <p class="step-title">3. Make Monthly Payment</p>
+                    <p>Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg Blorg
+                        Blorg Blorg </p>
+                </div>
+            </div>
+            <div style="width: 60%">
+                <img src="../../assets/pitch/img/sun.png" alt="Sun" class="solar-image2">
+            </div>
         </div>
-    </div>
-    <div fxLayout="column" fxLayoutAlign="start center">
-        <h1>Convinced?</h1>
-        <button mat-raised-button class="type-button" style="width:300px" (click)="getEstimate()">Get an Estimate
-            Now</button>
-        <div style="height:5vh"></div>
-        <!-- Enters in a flow that ends in create an account -->
+        <div fxLayout="column" fxLayoutAlign="start center">
+            <h1>Convinced?</h1>
+            <button mat-raised-button class="type-button" style="width:300px" (click)="getEstimate()">Get an Estimate
+                Now</button>
+            <div style="height:5vh"></div>
+            <!-- Enters in a flow that ends in create an account -->
+        </div>
     </div>
     <div class="footer"></div>
 

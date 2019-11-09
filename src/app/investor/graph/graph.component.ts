@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
-import { Investment } from 'src/app/_entities/Investment';
-import { PortfolioHistory } from 'src/app/_entities/PortfolioHistory';
+import { Investment } from 'src/app/_entities/investment/Investment';
+import { PortfolioHistory } from 'src/app/_entities/investment/PortfolioHistory';
 
 @Component({
     selector: 'app-investor-graph',

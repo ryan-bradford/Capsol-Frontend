@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InvestorService } from '../_services/investor.service';
-import { Investor } from '../_entities/Investor';
-import { Investment } from '../_entities/Investment';
-import { PortfolioHistory } from '../_entities/PortfolioHistory';
+import { Investor } from '../_entities/user/Investor';
+import { Investment } from '../_entities/investment/Investment';
+import { PortfolioHistory } from '../_entities/investment/PortfolioHistory';
 
 @Component({
   selector: 'app-investor',

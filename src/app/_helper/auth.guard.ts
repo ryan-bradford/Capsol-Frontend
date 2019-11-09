@@ -8,7 +8,11 @@ export class AuthGuard implements CanActivate {
 
     canActivate(): boolean {
         if (!this.auth.isAuthenticated()) {
-            this.router.navigate(['investor/login'], { relativeTo: this.route });
+            if (localStorage.getItem('type') === 'investor') {
+                this.router.navigate(['investor/login'], { relativeTo: this.route });
+            } else {
+                this.router.navigate(['homeowner/login'], { relativeTo: this.route });
+            }
             return false;
         }
         return true;

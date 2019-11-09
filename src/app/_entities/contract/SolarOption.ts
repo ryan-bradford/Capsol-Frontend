@@ -3,12 +3,12 @@ import { deserialize } from 'cerialize';
 export class SolarOption {
 
     @deserialize
-    electricity: number;
+    public electricity: number;
 
     @deserialize
-    contractSize: number;
+    public contractSize: number;
 
     @deserialize
-    monthlyPayment: number;
+    public monthlyPayment: number;
 
 }

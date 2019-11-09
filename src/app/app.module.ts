@@ -66,6 +66,7 @@ import { HomeownerEstimateModalComponent } from './pitch/homeowner-estimate/home
     NgxChartsModule,
     FlexLayoutModule,
     FontAwesomeModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

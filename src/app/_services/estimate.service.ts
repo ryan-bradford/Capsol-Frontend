@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map, tap } from 'rxjs/operators';
 import { Deserialize } from 'cerialize';
-import { EstimateResult } from '../_entities/EstimateResult';
+import { EstimateResult } from '../_entities/contract/EstimateResult';
 
 @Injectable({
     providedIn: 'root'

@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { map, tap, mergeMap } from 'rxjs/operators';
 import { Deserialize } from 'cerialize';
-import { Investor } from '../_entities/Investor';
+import { Investor } from '../_entities/user/Investor';
 
 @Injectable({
   providedIn: 'root'

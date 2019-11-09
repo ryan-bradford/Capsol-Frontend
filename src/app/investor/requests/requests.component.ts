@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Investment } from 'src/app/_entities/Investment';
+import { Investment } from 'src/app/_entities/investment/Investment';
 
 @Component({
     selector: 'app-requests-table',

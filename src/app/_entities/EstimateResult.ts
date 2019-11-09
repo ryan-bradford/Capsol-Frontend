@@ -15,4 +15,8 @@ export class EstimateResult {
 
     @deserialize
     public length: number;
+
+    public getSavings(): number {
+        return Math.round(100 * (this.billReduction - this.monthlyPayment)) / 100;
+    }
 }

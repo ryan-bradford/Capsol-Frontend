@@ -51,7 +51,7 @@
 <div *ngIf="addressSet === true && electricitySet === true && estimateResults !== undefined">
     <div mat-dialog-content fxLayout="column" fxLayoutAlign="center start">
         <h1 mat-dialog-title>Your Results:</h1>
-        <h1>Net Savings: ${{estimateResults.billReduction - estimateResults.monthlyPayment}} Per Month</h1>
+        <h1>Net Savings: ${{estimateResults.getSavings()}} Per Month</h1>
         <h1>Carbon Impact: {{estimateResults.yearlyCarbonSavings}} Tons a Year</h1>
         <h4 style="height:0px">Breakdown:</h4>
         <h4 style="height:0px">We will charge ${{estimateResults.monthlyPayment}} a month for {{estimateResults.length}}

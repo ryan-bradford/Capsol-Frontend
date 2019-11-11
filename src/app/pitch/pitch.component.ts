@@ -15,7 +15,7 @@ import { InvestorStat } from '../_entities/pitch/InvestorStat';
 export class PitchComponent {
 
   selected: 'homeowner' | 'investor';
-  cash: number;
+  cash = 0;
   portfolioHistory: PortfolioHistory[] = [];
   interestRate: number;
 
@@ -49,6 +49,10 @@ export class PitchComponent {
     this.selected = 'investor';
     this.statService.getInvestorStats().subscribe((result) => {
       this.investorStatInfo = result;
+    });
+    this.statService.getHistoricalPerformance().subscribe((result) => {
+      this.interestRate = result.interestRate;
+      this.portfolioHistory = result.portfolioHistory;
     });
     this.showInfo();
   }

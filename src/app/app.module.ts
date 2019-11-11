@@ -27,6 +27,7 @@ import { TransferFundsModalComponent } from './investor/transfer-funds-modal/tra
 import { HomeownerToolbarComponent } from './homeowner/toolbar/homeowner.toolbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeownerEstimateModalComponent } from './pitch/homeowner-estimate/homeowner.estimate.modal';
+import { ThemeEmitterComponent } from './_components/theme.emitter';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HomeownerEstimateModalComponent } from './pitch/homeowner-estimate/home
     TransferFundsModalComponent,
     HomeownerEstimateModalComponent,
     HomeownerToolbarComponent,
+    ThemeEmitterComponent
   ],
   imports: [
     BrowserModule,

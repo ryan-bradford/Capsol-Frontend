@@ -1,13 +1,16 @@
-import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, SimpleChange, ViewChild, AfterViewInit } from '@angular/core';
 import { Investment } from 'src/app/_entities/investment/Investment';
 import { PortfolioHistory } from 'src/app/_entities/investment/PortfolioHistory';
+import { ThemeEmitterComponent } from 'src/app/_components/theme.emitter';
 
 @Component({
     selector: 'app-investor-graph',
     templateUrl: './graph.component.html',
     styleUrls: ['./graph.component.scss']
 })
-export class InvestorGraphComponent implements OnChanges {
+export class InvestorGraphComponent implements OnChanges, AfterViewInit {
+
+    @ViewChild(ThemeEmitterComponent, { static: true }) theme: ThemeEmitterComponent;
 
     @Input()
     portfolioHistory: PortfolioHistory[] = [];
@@ -44,6 +47,12 @@ export class InvestorGraphComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         this.chartData = this.getChartData();
         this.amountEarned = this.getAmountEarned();
+    }
+
+    ngAfterViewInit() {
+        this.colorScheme = {
+            domain: [this.theme.accentColor, this.theme.primaryColor, '#C7B42C', '#AAAAAA']
+        };
     }
 
     getAmountEarned(): number {

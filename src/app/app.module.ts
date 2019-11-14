@@ -28,6 +28,7 @@ import { HomeownerToolbarComponent } from './homeowner/toolbar/homeowner.toolbar
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeownerEstimateModalComponent } from './pitch/homeowner-estimate/homeowner.estimate.modal';
 import { ThemeEmitterComponent } from './_components/theme.emitter';
+import { InvestorEstimateModalComponent } from './pitch/investor-estimate/investor.estimate.modal';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ThemeEmitterComponent } from './_components/theme.emitter';
     TransferFundsModalComponent,
     HomeownerEstimateModalComponent,
     HomeownerToolbarComponent,
-    ThemeEmitterComponent
+    ThemeEmitterComponent,
+    InvestorEstimateModalComponent
   ],
   imports: [
     BrowserModule,
@@ -74,6 +76,6 @@ import { ThemeEmitterComponent } from './_components/theme.emitter';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [TransferFundsModalComponent, HomeownerEstimateModalComponent]
+  entryComponents: [TransferFundsModalComponent, HomeownerEstimateModalComponent, InvestorEstimateModalComponent]
 })
 export class AppModule { }

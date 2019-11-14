@@ -4,7 +4,7 @@ import { InvestorService } from 'src/app/_services/investor.service';
 import { MatSnackBar } from '@angular/material';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { EstimateService } from 'src/app/_services/estimate.service';
-import { EstimateResult } from 'src/app/_entities/contract/EstimateResult';
+import { HomeownerEstimateResult } from 'src/app/_entities/contract/HomeownerEstimateResult';
 import { Router } from '@angular/router';
 
 /**
@@ -29,7 +29,7 @@ export class HomeownerEstimateModalComponent {
     addressSet = false;
     electricitySet = false;
 
-    estimateResults: EstimateResult;
+    estimateResults: HomeownerEstimateResult;
 
     constructor(
         public dialogRef: MatDialogRef<HomeownerEstimateModalComponent>,

@@ -101,8 +101,9 @@
             <app-investor-graph [portfolioHistory]="portfolioHistory" [cash]="cash" [interestRate]="interestRate">
             </app-investor-graph>
             <h1>Convinced?</h1>
-            <button mat-raised-button class="type-button" style="width:300px" (click)="redirectToInvestor()">Sign Up
-                Now!</button>
+            <button mat-raised-button class="type-button" style="width:300px" (click)="getInvestorEstimate()">Get an
+                Estimate
+                Now</button>
             <div style="height:5vh"></div>
             <!-- Enters in a flow that ends in create an account -->
         </div>
@@ -183,7 +184,8 @@
         </div>
         <div fxLayout="column" fxLayoutAlign="start center">
             <h1>Convinced?</h1>
-            <button mat-raised-button class="type-button" style="width:300px" (click)="getEstimate()">Get an Estimate
+            <button mat-raised-button class="type-button" style="width:300px" (click)="getHomeownerEstimate()">Get an
+                Estimate
                 Now</button>
             <div style="height:5vh"></div>
             <!-- Enters in a flow that ends in create an account -->

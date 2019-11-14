@@ -1,6 +1,6 @@
 import { deserialize } from 'cerialize';
 
-export class EstimateResult {
+export class HomeownerEstimateResult {
     @deserialize
     public contractSize: number;
 

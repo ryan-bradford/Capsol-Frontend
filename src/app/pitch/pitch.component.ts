@@ -6,6 +6,7 @@ import { PortfolioHistory } from '../_entities/investment/PortfolioHistory';
 import { StatService } from '../_services/stat.service';
 import { HomeownerStat } from '../_entities/pitch/HomeownerStat';
 import { InvestorStat } from '../_entities/pitch/InvestorStat';
+import { InvestorEstimateModalComponent } from './investor-estimate/investor.estimate.modal';
 
 @Component({
   selector: 'app-pitch',
@@ -57,8 +58,12 @@ export class PitchComponent {
     this.showInfo();
   }
 
-  public getEstimate() {
+  public getHomeownerEstimate() {
     this.dialog.open(HomeownerEstimateModalComponent);
+  }
+
+  public getInvestorEstimate() {
+    this.dialog.open(InvestorEstimateModalComponent);
   }
 
   private showInfo() {

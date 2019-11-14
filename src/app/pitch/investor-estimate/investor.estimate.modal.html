@@ -1,0 +1,32 @@
+<div *ngIf="amountSet === false">
+    <div mat-dialog-content>
+        <h1 mat-dialog-title>How much do you want to invest?</h1>
+        <mat-form-field>
+            <input matInput type="number" [formControl]="amount" placeholder="$">
+            <mat-error *ngIf="amount.invalid">{{getAmountErrorMessage()}}
+            </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-button class="address-button" [disabled]="this.amount.invalid"
+            (click)="amountSubmitted()">Next</button>
+    </div>
+</div>
+
+<div *ngIf="amountSet === true && estimateResults === undefined">
+    <div mat-dialog-content fxLayout="column" fxLayoutAlign="center center">
+        <h1 mat-dialog-title>Querying The Professionals...</h1>
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+
+<div *ngIf="amountSet === true && estimateResults !== undefined">
+    <div mat-dialog-content fxLayout="column" fxLayoutAlign="center start">
+        <h1 mat-dialog-title>Your Results:</h1>
+        <h1>Five Year Value: ${{estimateResults.fiveYearValue}}</h1>
+        <h1>Five Year Value Caron Impact: {{estimateResults.fiveYearCarbonImpact}} Tons CO2</h1>
+        <h1>Twenty Year Value: ${{estimateResults.twentyYearValue}}</h1>
+        <h1>Twenty Year Value Caron Impact: {{estimateResults.twentyYearCarbonImpact}} Tons CO2</h1>
+        <button mat-button class="address-button" (click)='this.goToInvestor(); $event.stopPropagation()'>Sign Up
+            Now!</button>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Optional } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { InvestorService } from 'src/app/_services/investor.service';
 import { MatSnackBar } from '@angular/material';
@@ -31,11 +31,15 @@ export class HomeownerEstimateModalComponent {
 
     estimateResults: HomeownerEstimateResult;
 
+    isModal = true;
+
     constructor(
-        public dialogRef: MatDialogRef<HomeownerEstimateModalComponent>,
+        @Optional() public dialogRef: MatDialogRef<HomeownerEstimateModalComponent>,
         private estimateService: EstimateService,
         private router: Router,
-        @Inject(MAT_DIALOG_DATA) public data: any) { }
+        @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+        this.isModal = dialogRef !== null;
+    }
 
     addressSubmitted() {
         this.addressSet = true;

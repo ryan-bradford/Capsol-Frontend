@@ -1,5 +1,4 @@
 import { Component, Input, OnChanges, SimpleChanges, SimpleChange, ViewChild, AfterViewInit } from '@angular/core';
-import { Investment } from 'src/app/_entities/investment/Investment';
 import { PortfolioHistory } from 'src/app/_entities/investment/PortfolioHistory';
 import { ThemeEmitterComponent } from 'src/app/_components/theme.emitter';
 
@@ -31,15 +30,19 @@ export class InvestorGraphComponent implements OnChanges, AfterViewInit {
     gradient = false;
     showLegend = true;
     showXAxisLabel = true;
-    xAxisLabel = 'Time';
+    xAxisLabel = 'Month';
     showYAxisLabel = true;
-    yAxisLabel = 'Value';
+    yAxisLabel = 'Value ($)';
 
     colorScheme = {
         domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
     };
 
     displayedColumns: string[] = ['value'];
+
+    monthNames = ['Jan', 'Feb', 'Mar', 'April', 'May', 'June',
+        'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
+    ];
 
     constructor() {
     }
@@ -64,17 +67,18 @@ export class InvestorGraphComponent implements OnChanges, AfterViewInit {
     }
 
     getChartData() {
+        const maxMonth = this.portfolioHistory[this.portfolioHistory.length - 1].month;
         const cashData: { name: string, value: number }[] =
             this.portfolioHistory.map((port) => {
                 return {
-                    name: String(port.month),
+                    name: String(this.getMonthAsString(port.month, maxMonth)),
                     value: port.cashDeposit
                 };
             });
         const portfolioData: { name: string, value: number }[] =
             this.portfolioHistory.map((port) => {
                 return {
-                    name: String(port.month),
+                    name: String(this.getMonthAsString(port.month, maxMonth)),
                     value: port.totalValue
                 };
             });
@@ -85,6 +89,20 @@ export class InvestorGraphComponent implements OnChanges, AfterViewInit {
             name: 'Deposits',
             series: cashData
         }];
+    }
+
+    getMonthAsString(month: number, maxMonth: number): string {
+        const currentMonth = new Date().getMonth();
+        const currentYear = new Date().getFullYear();
+
+        const offSet = currentMonth % 12 - maxMonth % 12;
+        let diff = (month + offSet);
+        if (diff < 0) {
+            diff += 12;
+        }
+        const monthsBefore = maxMonth - month - currentMonth + 12;
+        const yearsBefore = Math.floor(monthsBefore / 12);
+        return this.monthNames[diff % 12] + ' ' + String(currentYear - yearsBefore);
     }
 
 }

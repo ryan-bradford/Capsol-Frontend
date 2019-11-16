@@ -50,19 +50,23 @@
 
 <div *ngIf="addressSet === true && electricitySet === true && estimateResults !== undefined">
     <div mat-dialog-content fxLayout="column" fxLayoutAlign="center start">
-        <h1 mat-dialog-title *ngIf="this.isModal">Your Results:</h1>
-        <h1>Net Savings: ${{estimateResults.getSavings()}} Per Month</h1>
+        <h1 mat-dialog-title *ngIf="this.isModal" style="height: 0px;">Your Results:</h1>
+        <h1 style="height: 0px;">Installation Cost: $0</h1>
+        <h1 style="height: 0px;">Current Bill: ${{electricityBill.value}} Per Month</h1>
+        <h1 style="height: 0px;">New Bill: ${{estimateResults.getNewBill(electricityBill.value)}} Per Month
+        </h1>
+        <h4 style="height: 0px; margin-left:20px; font-style: italic;">Breakdown</h4>
+        <h4 style="height: 0px; margin-left:20px; font-style: italic;">Our Monthly Fee:
+            ${{estimateResults.monthlyPayment}}</h4>
+        <h4 style="height: 0px; margin-left:20px; font-style: italic;">After Solar Electricity Bill:
+            ${{electricityBill.value - estimateResults.billReduction}} Per Month</h4>
+        <h1 style="height: 0px;">Total Savings: ${{estimateResults.getSavings()}} Per
+            Month
+        </h1>
         <h1>Carbon Impact: {{estimateResults.yearlyCarbonSavings}} Tons a Year</h1>
         <div *ngIf="this.isModal">
-            <button mat-button class="address-button" (click)='this.goToHomeowner(); $event.stopPropagation()'>Sign
-                Up
-                Now!</button>
+            <button mat-button class="address-button" (click)='this.goToHomeowner(); $event.stopPropagation()'>
+                Sign Up Now!</button>
         </div>
-        <h4 style="height:0px">Breakdown:</h4>
-        <h4 style="height:0px">We will charge ${{estimateResults.monthlyPayment}} a month for
-            {{estimateResults.length}}
-            years</h4>
-        <h4 style="height:0px">Reducing your electricity bill by an average of ${{estimateResults.billReduction}} a
-            month</h4>
     </div>
 </div>

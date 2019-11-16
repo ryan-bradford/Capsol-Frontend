@@ -16,4 +16,12 @@ export class InvestorEstimateResult {
     @deserialize
     public fiveYearCarbonImpact: number;
 
+    public getFiveYearEarnings(): number {
+        return Math.round(100 * (this.fiveYearValue - this.baseAmount)) / 100;
+    }
+
+    public getTwentyYearEarnings(): number {
+        return Math.round(100 * (this.twentyYearValue - this.baseAmount)) / 100;
+    }
+
 }

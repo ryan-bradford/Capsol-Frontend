@@ -19,4 +19,8 @@ export class HomeownerEstimateResult {
     public getSavings(): number {
         return Math.round(100 * (this.billReduction - this.monthlyPayment)) / 100;
     }
+
+    public getNewBill(currentBill: number) {
+        return Math.round(100 * (this.monthlyPayment + currentBill - this.billReduction)) / 100;
+    }
 }

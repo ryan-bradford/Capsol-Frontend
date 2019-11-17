@@ -101,14 +101,51 @@ $md-primary: (
     )
 );
 
+$md-grayblue: (
+    50 : #ecf0f1,
+    100 : #ced9dd,
+    200 : #aec0c6,
+    300 : #8ea6af,
+    400 : #75939d,
+    500 : #5d808c,
+    600 : #557884,
+    700 : #4b6d79,
+    800 : #41636f,
+    900 : #30505c,
+    A100 : #a9e7ff,
+    A200 : #76d9ff,
+    A400 : #43cbff,
+    A700 : #2ac3ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$app-primary: mat-palette($md-primary, 600);
+$app-darkblue: mat-palette($md-primary, 600);
 $app-accent:  mat-palette($md-accent, 300);
 $app-warn:    mat-palette($mat-deep-orange, 400);
 $app-dark-color:    mat-palette($md-darkcolor, 400);
+$app-grayblue:    mat-palette($md-grayblue, 500);
+$app-primary: $app-grayblue;
 // Create the theme object (a Sass map containing all of the palettes).
 $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
@@ -116,4 +153,5 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 $primary: mat-color($app-primary);
 $accent: mat-color($app-accent);
 $warn: mat-color($app-warn);
+$grayblue: mat-color($app-grayblue);
 $darkcolor: mat-color($app-dark-color);

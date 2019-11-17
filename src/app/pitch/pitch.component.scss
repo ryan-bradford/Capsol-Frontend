@@ -12,7 +12,7 @@
 
 .toolbar {
     @include mat-elevation(4);
-    background-color: $accent;
+    background-color: $grayblue;
     width: 100%;
     height: 10vh;
     color: black;
@@ -20,6 +20,11 @@
 
 .company-name {
     font-family: 'trench', 'arial', sans-serif;
+    width:30%;
+    height: 120px;
+    background-image: url('../../assets/logo_black.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .type-button {
@@ -116,4 +121,13 @@
     width: 65%;
     margin-right: 20%;
     margin-top: 15%;
+}
+
+.logo {
+    margin-top: 10px;
+    width:10%;
+    height: 130px;
+    background-image: url('../../assets/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }

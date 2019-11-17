@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'TODO'
+  apiUrl: 'https://capsol.io/api'
 };

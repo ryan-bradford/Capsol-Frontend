@@ -97,9 +97,11 @@
             </div>
         </div>
         <div fxLayout="column" fxLayoutAlign="start center">
-            <h1>Historical Performance</h1>
-            <app-investor-graph [portfolioHistory]="portfolioHistory" [cash]="cash" [interestRate]="interestRate">
-            </app-investor-graph>
+            <div *ngIf="portfolioHistory.length !== 0">
+                <h1>Historical Performance</h1>
+                <app-investor-graph [portfolioHistory]="portfolioHistory" [cash]="cash" [interestRate]="interestRate">
+                </app-investor-graph>
+            </div>
             <h1>Convinced?</h1>
             <button mat-raised-button class="type-button" style="width:300px" (click)="getInvestorEstimate()">Get an
                 Estimate

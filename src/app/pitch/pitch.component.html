@@ -11,7 +11,7 @@
     <div fxFlex=4></div>
     <div fxLayout="column" fxLayoutAlign="start center" style="width: 100%">
         <div class="company-name mat-display-4"></div>
-        <h4 class="use-app-font mat-display-1" style="text-align: center; width: 50%; height: 80px">
+        <h4 class="use-app-font mat-display-1 pitch-text">
             Connecting every day investors who want to do good yet still make money with
             homeowners in order to provide crowdsourced loans.</h4>
         <h2 class="use-app-font mat-h2">Want to Know More?</h2>
@@ -31,19 +31,22 @@
     <div *ngIf="investorStatInfo !== undefined">
         <div fxLayout="row" fxLayoutAlign="start top" style="width: 100%" class="stat-container">
             <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-                <h3 style="height: 10px" class="use-app-font">Carbon Reduced</h3>
-                <h1 class="use-app-font mat-display-3" style="height: 0px">{{investorStatInfo.carbonReduction}}+ Tons
+                <h3 style="height: 10px; text-align: center" class="use-app-font">Carbon Reduced</h3>
+                <h1 class="use-app-font mat-display-3 stat-number">
+                    {{investorStatInfo.carbonReduction}}+ Tons
                 </h1>
                 <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
             <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-                <h3 style="height: 10px" class="use-app-font">Target Rate</h3>
-                <h1 class="use-app-font mat-display-3" style="height: 0px">{{investorStatInfo.targetRate}}%</h1>
+                <h3 style="height: 10px; text-align: center" class="use-app-font">Target Rate</h3>
+                <h1 class="use-app-font mat-display-3 stat-number">{{investorStatInfo.targetRate}}%
+                </h1>
                 <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
             <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-                <h3 style="height: 10px" class="use-app-font">Money Managed</h3>
-                <h1 class="use-app-font mat-display-3" style="height: 0px">${{investorStatInfo.totalPortfolio}}+</h1>
+                <h3 style="height: 10px; text-align: center" class="use-app-font">Money Managed</h3>
+                <h1 class="use-app-font mat-display-3 stat-number">
+                    ${{investorStatInfo.totalPortfolio}}+</h1>
                 <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
         </div>
@@ -117,19 +120,19 @@
     <div *ngIf="homeownerStatInfo !== undefined">
         <div fxLayout="row" fxLayoutAlign="start top" style="width: 100%" class="stat-container">
             <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-                <h3 style="height: 10px" class="use-app-font">Panels Installed</h3>
-                <h1 class="use-app-font mat-display-3" style="height: 0px">{{homeownerStatInfo.totalPanels}}+</h1>
+                <h3 style="height: 10px; text-align: center" class="use-app-font">Panels Installed</h3>
+                <h1 class="use-app-font mat-display-3 stat-number">{{homeownerStatInfo.totalPanels}}+</h1>
                 <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
             <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-                <h3 style="height: 10px" class="use-app-font">Carbon Reduced</h3>
-                <h1 class="use-app-font mat-display-3" style="height: 0px">{{homeownerStatInfo.carbonReduction}}+ Tons
+                <h3 style="height: 10px; text-align: center" class="use-app-font">Carbon Reduced</h3>
+                <h1 class="use-app-font mat-display-3 stat-number">{{homeownerStatInfo.carbonReduction}}+ Tons
                 </h1>
                 <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
             <div fxLayout="column" style="width:33%" fxLayoutAlign="start center" class="stat-item">
-                <h3 style="height: 10px" class="use-app-font">Money Saved</h3>
-                <h1 class="use-app-font mat-display-3" style="height: 0px">${{homeownerStatInfo.totalSavings}}+</h1>
+                <h3 style="height: 10px; text-align: center" class="use-app-font">Money Saved</h3>
+                <h1 class="use-app-font mat-display-3 stat-number">${{homeownerStatInfo.totalSavings}}+</h1>
                 <h5 style="height: 0px" class="use-app-font">As of Nov 6, 2019</h5>
             </div>
         </div>
@@ -143,17 +146,19 @@
                 <h1>Why Choose Capsol?</h1>
                 <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
                     <p class="why-title">Simple, Quick, Pain Free</p>
-                    <p>All you have to do is enter your address, the provider, and your electricity bill and we find the
+                    <p class="why-reason">All you have to do is enter your address, the provider, and your electricity
+                        bill and we find the
                         financing and plan all the installation</p>
                 </div>
                 <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
                     <p class="why-title">No Home Equity</p>
-                    <p>Unlike a bank, we take no equity in your home or any other assets as assurance for the
+                    <p class="why-reason">Unlike a bank, we take no equity in your home or any other assets as assurance
+                        for the
                         subscription</p>
                 </div>
                 <div fxLayout="column" fxLayoutAlign="start start" class="why-item">
                     <p class="why-title">Fair Market Rate</p>
-                    <p>Fees are adjusted at least every month to match supply with demand</p>
+                    <p class="why-reason">Fees are adjusted at least every month to match supply with demand</p>
                 </div>
             </div>
         </div>

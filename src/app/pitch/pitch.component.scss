@@ -10,6 +10,20 @@
     height: 85vh;
 }
 
+.logo {
+    margin-top: 10px;
+    width:10%;
+    height: 130px;
+    background-image: url('../../assets/logo.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.pitch-text {
+    text-align: center;
+     width: 50%;
+}
+
 .toolbar {
     @include mat-elevation(4);
     background-color: $grayblue;
@@ -19,7 +33,6 @@
 }
 
 .company-name {
-    font-family: 'trench', 'arial', sans-serif;
     width:30%;
     height: 120px;
     background-image: url('../../assets/logo_black.svg');
@@ -58,6 +71,10 @@
     height: 100%;
     color: white;
     margin-bottom: 10vh;
+}
+
+.stat-number {
+    height: 0px;
 }
 
 .solar-image {
@@ -123,11 +140,40 @@
     margin-top: 15%;
 }
 
-.logo {
-    margin-top: 10px;
-    width:10%;
-    height: 130px;
-    background-image: url('../../assets/logo.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .logo {
+        width:20%;
+    }
+
+    .company-name {
+        width: 50%;
+        height: 20vw;
+    }
+
+    .pitch-text {
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .type-button {
+        width: 160px;
+        font-size: 25px;
+    }
+
+    .stat-number {
+        font-size: 30px;
+    }
+
+    .why-item {
+        width: 95%;
+    }
+
+    .step-item  {
+        width: 100%;
+    }
+
+    .step-container {
+        margin-left: 5%;
+    }
+} 

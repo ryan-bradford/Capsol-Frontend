@@ -9,3 +9,17 @@
 .main-div {
     width: 400px;
 }
+
+@media only screen and (max-width: 768px) { 
+    .main-div {
+        width: 100%;
+    }
+
+    .big-info {
+        font-size: 18px;
+    }
+
+    .little-info {
+        font-size: 10px;
+    }
+}

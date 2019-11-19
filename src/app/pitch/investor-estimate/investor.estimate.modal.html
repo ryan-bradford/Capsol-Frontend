@@ -22,14 +22,18 @@
 <div *ngIf="amountSet === true && estimateResults !== undefined">
     <div mat-dialog-content fxLayout="column" fxLayoutAlign="center start">
         <h1 style="height:0px">Your Investment</h1>
-        <h2 style="height:0px; margin-left: 20px;">Total Value: ${{estimateResults.fiveYearValue}}</h2>
-        <h2 style="height:0px; margin-left: 20px;">Total Earnings: ${{estimateResults.getFiveYearEarnings()}}</h2>
-        <h2 style="height:0px; margin-left: 20px;">Initial Investment: ${{estimateResults.baseAmount}}</h2>
-        <h4 style="font-style: italic; margin-left: 20px;">*Projected in 5 Years</h4>
+        <h2 style="height:0px; margin-left: 20px;" class="big-info">Total Value: ${{estimateResults.fiveYearValue}}</h2>
+        <h2 style="height:0px; margin-left: 20px;" class="big-info">Total Earnings:
+            ${{estimateResults.getFiveYearEarnings()}}</h2>
+        <h2 style="height:0px; margin-left: 20px;" class="big-info">Initial Investment: ${{estimateResults.baseAmount}}
+        </h2>
+        <h4 style="font-style: italic; margin-left: 20px;" class="little-info">*Projected in 5 Years</h4>
         <h1 style="height:0px">Your Impact</h1>
-        <h2 style="height:0px; margin-left: 20px;">5 Year: {{estimateResults.fiveYearCarbonImpact}} Tons CO2</h2>
-        <h2 style="height:0px; margin-left: 20px;">20 Year: {{estimateResults.twentyYearCarbonImpact}} Tons CO2</h2>
-        <h4 style="font-style: italic; margin-left: 20px;">*Projected in 5 Years</h4>
+        <h2 style="height:0px; margin-left: 20px;" class="big-info">5 Year: {{estimateResults.fiveYearCarbonImpact}}
+            Tons CO2</h2>
+        <h2 style="height:0px; margin-left: 20px;" class="big-info">20 Year: {{estimateResults.twentyYearCarbonImpact}}
+            Tons CO2</h2>
+        <h4 style="font-style: italic; margin-left: 20px;" class="little-info">*Projected in 5 Years</h4>
         <button mat-button class="address-button" (click)='this.goToInvestor(); $event.stopPropagation()'>Sign Up
             Now!</button>
     </div>

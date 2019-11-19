@@ -67,6 +67,15 @@ export class InvestorGraphComponent implements OnChanges, AfterViewInit {
     }
 
     getChartData() {
+        if (!this.portfolioHistory.length) {
+            return [{
+                name: 'Total Value',
+                series: []
+            }, {
+                name: 'Deposits',
+                series: []
+            }];
+        }
         const maxMonth = this.portfolioHistory[this.portfolioHistory.length - 1].month;
         const cashData: { name: string, value: number }[] =
             this.portfolioHistory.map((port) => {
